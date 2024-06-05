@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
     const images = '/images/profile.jpg'; // Adjusted to use the path served by express.static
-    res.render('index.html', { images: images });
+    res.render('index.html');
 });
 
 app.get("/about", (req, res) => {
