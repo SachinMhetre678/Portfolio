@@ -6,7 +6,7 @@ const BookACall = () => {
     <div className='space-y-5 pb-2'>
       <h3 className='text-lg font-medium'>Book a Call</h3>
       <Link
-        href='https://calendly.com/swanandwagh/alias'
+        href='https://calendly.com/sachinmhetre678'
         target='_blank'
         data-aos-duration='1000'
         className='flex flex-col space-y-5 bg-gradient-to-tr bg-white dark:from-teal-950 dark:to-teal-800 dark:text-white rounded-2xl py-5 px-6 cursor-pointer hover:scale-[101%] hover:shadow-sm transition-all duration-300 border dark:border-teal-500'
