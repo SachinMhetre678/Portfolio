@@ -1,5 +1,6 @@
 import { ProjectsProps, ProjectItemProps } from '../types/projects';
 
+// src/common/constant/projects.ts
 export const PROJECTSLIST: ProjectsProps = {
   projects: [
     {
@@ -10,12 +11,8 @@ export const PROJECTSLIST: ProjectsProps = {
       image: '/images/projects/codedrop.png',
       link_demo: 'https://codedrop.vercel.app/',
       link_github: 'https://github.com/SachinMhetre678/CodeDrop',
-      stacks: [
-        'Svelte',
-        'JavaScript',
-        'MongoDB',
-        'TailwindCss',
-      ],
+      stacks: ['Svelte', 'JavaScript', 'MongoDB', 'TailwindCss'],
+      category: 'Web Development', // Added category
       content: '',
       is_show: true,
       is_featured: true,
@@ -29,13 +26,8 @@ export const PROJECTSLIST: ProjectsProps = {
       image: '/images/projects/colabio.png',
       link_demo: 'https://colabio.vercel.app/',
       link_github: 'https://github.com/SachinMhetre678/Collabio',
-      stacks: [
-        'Next.js',
-        'Node.js',
-        'TypeScript',
-        'MongoDB',
-        'Firebase',
-      ],
+      stacks: ['Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'Firebase'],
+      category: 'Web Development', // Added category
       content: '',
       is_show: true,
       is_featured: true,
@@ -43,27 +35,29 @@ export const PROJECTSLIST: ProjectsProps = {
     },
     {
       title: 'MediSync - Doctor Appointment Booking System',
-      slug: 'Medisync',
+      slug: 'medisync',
       description:
         'MediSync is a web app that simplifies doctor appointments and healthcare management, improving communication between patients and providers. It integrates Gen AI for doctor recommendations and prescription data extraction.',
       image: '/images/projects/medisync.jpg',
       link_demo: 'https://mediisync.vercel.app/',
       link_github: 'https://github.com/SachinMhetre678/MediSync',
-      stacks: ['React.js','MongoDB','Node.js','OpenAI','Figma','Redux','JavaScript'],
+      stacks: ['React.js', 'MongoDB', 'Node.js', 'OpenAI', 'Figma', 'Redux', 'JavaScript'],
+      category: 'Web Development', // Added category
       content: '',
       is_show: true,
       is_featured: false,
       updated_at: new Date(),
     },
     {
-      title: 'Heart Diesease Prediction System',
+      title: 'Heart Disease Prediction System',
       slug: 'heart-disease-prediction-system',
       description:
-        'This project leverages machine learning techniques to detect heart disease early by analyzing a comprehensive dataset of risk factors. By identifying high-risk individuals, it enables timely medical intervention, aiming to improve health outcome and personalized medicine and prevention.',
+        'This project leverages machine learning techniques to detect heart disease early by analyzing a comprehensive dataset of risk factors. By identifying high-risk individuals, it enables timely medical intervention, aiming to improve health outcomes.',
       image: '/images/projects/heart.jpeg',
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/Heart_Disease_Prediction',
-      stacks: ['React.js', 'JavaScript', 'Python', 'CSS', 'HTML5','Flask','SQLite','Natural Language Processing'],
+      stacks: ['React.js', 'JavaScript', 'Python', 'CSS', 'HTML5', 'Flask', 'SQLite', 'Natural Language Processing'],
+      category: 'Machine Learning', // Added category
       content: '',
       is_show: true,
       is_featured: false,
@@ -77,7 +71,8 @@ export const PROJECTSLIST: ProjectsProps = {
       image: '/images/projects/platesniper.gif',
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/PlateSniper',
-      stacks: ['React.js', 'JavaScript', 'CSS', 'HTML5','Natural Language Processing'],
+      stacks: ['React.js', 'JavaScript', 'CSS', 'HTML5', 'Natural Language Processing'],
+      category: 'Machine Learning', // Added category
       content: '',
       is_show: true,
       is_featured: false,
@@ -87,11 +82,12 @@ export const PROJECTSLIST: ProjectsProps = {
       title: 'FinTrack',
       slug: 'fintrack',
       description:
-        'The Personal Finance Management System, built with Java Swing and MySQL, allows users to track transactions, monitor financial habits, and visualize monthly data through charts, enhancing personal financial management and decision-making.',
+        'The Personal Finance Management System, built with Java Swing and MySQL, allows users to track transactions, monitor financial habits, and visualize monthly data through charts.',
       image: '/images/projects/fintrack.png',
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/Personal_Finance_Management',
       stacks: ['Java', 'MySQL', 'HTML5'],
+      category: 'Web Development', // Added category
       content: '',
       is_show: true,
       is_featured: false,
@@ -106,6 +102,7 @@ export const PROJECTSLIST: ProjectsProps = {
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/Data-Analysis/tree/main/Cricket_t20_Analysis',
       stacks: ['PowerBI'],
+      category: 'Data Analysis', // Added category
       content: '',
       is_show: true,
       is_featured: false,
@@ -113,13 +110,14 @@ export const PROJECTSLIST: ProjectsProps = {
     },
     {
       title: 'Hotel Revenue Analysis',
-      slug: 'hote;-revenue',
+      slug: 'hotel-revenue',
       description:
-        'This project involves transforming data with Power Query, building metrics using DAX, and creating a dashboard that aligns with business goals to drive data-driven decisions and meet stakeholder needs.',
+        'This project involves transforming data with Power Query, building metrics using DAX, and creating a dashboard that aligns with business goals.',
       image: '/images/projects/hotel.png',
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/Data-Analysis/tree/main/hotel_revenue',
       stacks: ['PowerBI'],
+      category: 'Data Analysis', // Added category
       content: '',
       is_show: true,
       is_featured: false,

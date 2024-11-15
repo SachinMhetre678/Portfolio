@@ -6,6 +6,7 @@ export interface ProjectItemProps {
   link_demo?: string;
   link_github?: string;
   stacks: string[];
+  category:string;
   content?: string;
   is_show: boolean;
   is_featured: boolean;

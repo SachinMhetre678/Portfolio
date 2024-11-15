@@ -7,7 +7,7 @@ const Copyright = () => {
       <span className='text-red-500 animate-pulse'>❤</span>
       <span>by</span>
       <a
-        href='https://github.com/SachinMhetre78'
+        href='https://github.com/SachinMhetre678'
         target='_blank'
         rel='noopener noreferrer'
       >
