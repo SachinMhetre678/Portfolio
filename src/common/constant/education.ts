@@ -15,7 +15,7 @@ export const EDUCATION: EducationProps[] = [
     school: 'Pune University',
     major: 'Secondary School',
     logo: '/images/education/arihant.jpeg',
-    location: 'Camp , Pune 🇺🇸',
+    location: 'Camp , Pune 🇮🇳',
     degree: 'HSC',
     start_year: 2020,
     end_year: 2022,

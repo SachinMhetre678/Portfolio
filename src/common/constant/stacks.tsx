@@ -52,7 +52,6 @@ const iconSize = 24;
 export const STACKS: stacksProps = {
   HTML5: <SiHtml5 size={iconSize} className='text-orange-500' />,
   OpenAI: <SiOpenai size={iconSize} className='text-black-600' />,
-  Spring: <SiSpring size={iconSize} className='text-green-600' />,
   Java: <FaJava size={iconSize} className='text-red-600' />,
   MySQL: <SiMysql size={iconSize} className='text-blue-500' />,
   Python: <SiPython size={iconSize} className='text-yellow-400' />,
