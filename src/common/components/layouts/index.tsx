@@ -8,6 +8,9 @@ import useHasMounted from '@/common/hooks/useHasMounted';
 import HeaderSidebar from './header/HeaderSidebar';
 import HeaderTop from './header/HeaderTop';
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -36,6 +39,8 @@ const Layout = ({ children }: LayoutProps) => {
           isDarkTheme ? 'dark:text-darkText' : ''
         )}
       >
+        <SpeedInsights />
+        <Analytics />
         {isFullPageHeader ? (
           <div className='flex flex-col xl:pb-8'>
             <HeaderTop />
