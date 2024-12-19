@@ -32,6 +32,13 @@ import {
   SiMinds,
   SiHtml5,
   SiPowerbi,
+  SiKubernetes,
+  SiMicrosoftexcel,
+  SiNumpy,
+  SiPandas,
+  SiCplusplus,
+  SiC,
+  SiAdobepremierepro,
 } from 'react-icons/si';
 
 import { 
@@ -82,4 +89,13 @@ export const STACKS: stacksProps = {
   'Artificial Intelligence': <SiTensorflow size={iconSize} className='text-orange-600'/>,
   'Natural Language Processing': <SiTensorflow size={iconSize} className='text-orange-600'/>,
   PowerBI: <SiPowerbi size={iconSize} className='text-yellow-500' />,
+  Kubernetes: <SiKubernetes size={iconSize} className='text-blue-500' />,
+  Excel: <SiMicrosoftexcel size={iconSize} className='text-green-600' />,
+  NumPy: <SiNumpy size={iconSize} className='text-blue-400' />,
+  Pandas: <SiPandas size={iconSize} className='text-purple-600' />,
+  'C++': <SiCplusplus size={iconSize} className='text-blue-700' />,
+  C: <SiC size={iconSize} className='text-blue-600' />,
+  Express: <SiExpress size={iconSize} className='text-gray-600' />,
+  'Java Swing': <FaJava size={iconSize} className='text-red-600' />,
+  'Video Editing': <SiAdobepremierepro size={iconSize} className='text-purple-700' />,
 };
