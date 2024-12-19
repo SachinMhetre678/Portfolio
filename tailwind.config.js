@@ -47,6 +47,13 @@ module.exports = {
         'badge-pulse': 'badge 1.5s ease-out infinite',
         'looping-tag': 'loop 100s linear infinite',
       },
+      opacity: {
+        '5': '0.05',
+        '20': '0.20',
+      },
+      backdropBlur: {
+        sm: '4px',
+      }
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

@@ -13,7 +13,10 @@ export const CAREERS: CareerProps[] = [
     industry: 'School',
     link: 'https://www.abnormalhome.org/',
     responsibilities: [
-      'Developed a React Native mobile application for Abnormal Home, incorporating essential features such as a chat interface, notice board, and event calendar to enhance user engagement. Implemented OTP-based login for secure user access. Additionally, supported the academic growth of over 15 children by guiding them in assignments and skill-enhancing activities, significantly contributing to their cognitive and motor skill development. This role combined technical implementation with direct mentorship, enhancing the educational experience for young learners.',
+      'Developed a React Native mobile application featuring chat interface, notice board, and event calendar for enhanced user engagement',
+      'Implemented secure OTP-based authentication system for user access management',
+      'Mentored 15+ children through academic assignments and skill-building activities',
+      'Facilitated cognitive development through structured learning programs and interactive sessions',
     ],
   },
   {
