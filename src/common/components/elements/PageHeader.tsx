@@ -48,7 +48,10 @@ const PageHeader = ({
       </h1>
       {description && (
         <p
-          className={cn(reveal, 'mt-5 max-w-[46ch] text-body-lg text-ink-muted')}
+          className={cn(
+            reveal,
+            'mt-5 max-w-[46ch] text-body-lg text-ink-muted'
+          )}
           style={step(3)}
         >
           {description}

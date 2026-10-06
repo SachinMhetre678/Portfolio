@@ -7,10 +7,12 @@ export interface Experience {
 }
 
 export const INTRO = [
-  'I’m a QA automation engineer at Vimo in Pune. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.',
-  'I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026). Outside QA I’ve built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.',
-  'Outside work: I captained my Kho-Kho team in junior college, play the tabla, and play a few sports and esports.',
+  'I’m Sachin, from Pune. I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026), and I like building test automation and the tools around it. Outside QA I’ve built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.',
+  'At work I’m a QA automation engineer at Vimo. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.',
 ];
+
+export const OUTSIDE_WORK =
+  'Outside work: I captained my Kho-Kho team in junior college, play the tabla, and play a few sports and esports.';
 
 export const EXPERIENCE: Experience[] = [
   {
