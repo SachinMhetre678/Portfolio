@@ -63,11 +63,17 @@ const WorkVisual = ({ project }: { project: Project }) => {
       />
     );
   }
+  if (slug === 'scribly') {
+    return (
+      <PosterVisual
+        src='/images/projects/scribly.webp'
+        alt='Project poster for Scribly, a Chrome extension for taking better notes on YouTube: a mockup of a video with drawing tools and a notes panel, a My Notes dashboard, a FOSS Hack 2025 winner badge marked team project, and a list of features including timestamped notes, drawing, highlights, screenshots, search and export/import.'
+        position='object-top'
+        className={VISUAL_HEIGHT}
+      />
+    );
+  }
   const images: Record<string, { src: string; alt: string }> = {
-    scribly: {
-      src: '/images/projects/scribly.jpg',
-      alt: 'Scribly demo video thumbnail',
-    },
     'hotel-management-system': {
       src: '/images/projects/hotel.png',
       alt: `${title} screenshot`,

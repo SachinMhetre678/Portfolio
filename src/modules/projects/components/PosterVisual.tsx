@@ -9,11 +9,18 @@ interface PosterVisualProps {
   src: string;
   alt: string;
   className?: string;
+  // Tailwind object-position class for the cropped card view.
+  position?: string;
 }
 
 // Cropped poster that opens full size in a native modal <dialog>:
 // the browser handles Esc, focus trapping and inerting the page behind it.
-const PosterVisual = ({ src, alt, className }: PosterVisualProps) => {
+const PosterVisual = ({
+  src,
+  alt,
+  className,
+  position = 'object-[50%_40%]',
+}: PosterVisualProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   return (
     <>
@@ -32,7 +39,10 @@ const PosterVisual = ({ src, alt, className }: PosterVisualProps) => {
           alt={alt}
           fill
           sizes='(min-width: 768px) 60vw, 100vw'
-          className='rounded-[inherit] border border-hairline object-cover object-[50%_40%] transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]'
+          className={cn(
+            'rounded-[inherit] border border-hairline object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]',
+            position
+          )}
         />
         <span className='absolute bottom-3 left-3 rounded-full border border-hairline bg-surface-1/80 px-2 py-0.5 text-[11px] leading-4 text-ink-muted backdrop-blur'>
           Project poster
