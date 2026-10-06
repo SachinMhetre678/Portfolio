@@ -1,21 +1,25 @@
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/common/components/elements/Container';
-import PageHeading from '@/common/components/elements/PageHeading';
+import { resumeExists } from '@/common/libs/resume';
 import Contact from '@/modules/contact';
 
-const ContactPage: NextPage = () => (
+interface ContactPageProps {
+  hasResume: boolean;
+}
+
+const ContactPage: NextPage<ContactPageProps> = ({ hasResume }) => (
   <>
     <NextSeo title='Contact' />
     <Container>
-      <PageHeading
-        title='Contact'
-        description='The fastest way to reach me is email.'
-      />
-      <Contact />
+      <Contact hasResume={hasResume} />
     </Container>
   </>
 );
+
+export const getStaticProps: GetStaticProps<ContactPageProps> = async () => ({
+  props: { hasResume: resumeExists() },
+});
 
 export default ContactPage;
