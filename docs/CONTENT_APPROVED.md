@@ -111,7 +111,7 @@ Previous version (superseded):
 
 ### Experience
 
-**Associate QA Automation Engineer · Vimo**
+**Associate Automation Engineer · Vimo**
 Jan 2026 - Present · Pune
 - Built a regression failure-management system in Java, PostgreSQL, Jenkins and Jira for a 360-scenario Playwright/Cucumber suite. It handles 50-60 nightly failures across multiple state environments and routes them to 9 test owners.
 - Cut manual failure distribution from 3-4 hours to 5-10 minutes.

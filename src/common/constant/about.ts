@@ -16,7 +16,7 @@ export const OUTSIDE_WORK =
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: 'Associate QA Automation Engineer',
+    role: 'Associate Automation Engineer',
     company: 'Vimo',
     period: 'Jan 2026 - Present',
     location: 'Pune',
