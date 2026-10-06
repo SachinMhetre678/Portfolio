@@ -1,6 +1,6 @@
 # Design System (Phase 1, 2026-10-06)
 
-Status: **proposed, waiting for Sachin's approval.** Phase 3 builds against this file. Section 9 lists the choices that need a yes/no.
+Status: **approved by Sachin (2026-10-06).** Phase 3 builds against this file. Section 9 records the approved decisions.
 
 ---
 
@@ -220,9 +220,9 @@ Fetched `vercel-labs/agent-skills/skills/web-design-guidelines/SKILL.md`. It poi
 
 ---
 
-## 9. Needs approval before Phase 3
+## 9. Approved decisions (2026-10-06)
 
-1. **Accent color:** muted emerald (`#3fbf8f` dark / `#0b6b4a` light). Alternatives: keep Linear's lavender `#5e6ad2` (more "Linear", but the Taste Lila rule flags it), or a cool blue.
-2. **Font:** add the `geist` npm package (v1.7, peer `next >=13.2`, so it works with 13.5). It's about 8 MB in `node_modules`, but the browser downloads only the two variable woff2 files, self-hosted through `next/font`, with no runtime JS. It replaces three current Google fonts (Jakarta, Sora, Fira Code). I'll measure the actual payload in Phase 4 instead of guessing it now.
-3. **Animation libraries:** remove AOS. Keep framer-motion only if the drawer needs it, otherwise remove it in Phase 3.
-4. **Default theme:** dark by default with a manual toggle, rather than following the OS setting.
+1. **Accent:** muted emerald, `#3fbf8f` (dark) / `#0b6b4a` (light).
+2. **Font:** add the `geist` package (v1.7, peer `next >=13.2`), self-hosted via `next/font`. Replaces Jakarta, Sora and Fira Code. Measure the font payload in Phase 4.
+3. **Animation:** remove AOS. Keep framer-motion only if the mobile drawer needs it; otherwise remove it in Phase 3.
+4. **Theme:** dark by default, with a manual toggle.
