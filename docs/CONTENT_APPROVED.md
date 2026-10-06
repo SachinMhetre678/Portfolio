@@ -32,33 +32,57 @@ Copy rules (from DESIGN_SYSTEM.md): sentence case, no em-dashes or en-dashes in 
 
 ## 3. Home
 
-**Greeting:** Hi, I'm Sachin 👋 *(wave plays once, skipped under reduced motion)*
+Revised 2026-10-06 (home redesign, pending Sachin's review). Replaces the earlier home copy. Other pages are unchanged.
 
-**Headline (h1):** I build test automation and the tools around it.
+**Layout:** floating pill nav instead of the sidebar (home only). Nav: SM · Sachin Mhetre, Home · About · Projects · Contact, theme toggle, `Get in touch` pill.
 
-**Subtext:**
-> Associate QA Automation Engineer at Vimo, working with Java, Playwright, Cucumber and Jenkins. B.Tech CSE, Symbiosis Institute of Technology, 2026.
+### Hero
 
-**Meta line:**
-- Based in Pune, Maharashtra
-- B.Tech CSE, Symbiosis Institute of Technology (2026)
+No employer or job title in the hero.
 
-**Bio:**
-> At Vimo I write end-to-end UI tests with Playwright and Cucumber, and I built the system that sorts our nightly regression failures and routes each one to its owner. Before that I built full-stack apps with Spring Boot, React and SvelteKit, and a few AI/ML projects. My team won FOSS Hack 2025 with Scribly.
+- **Badge:** Pune, India · B.Tech CSE 2026
+- **Headline (h1):** **I build software** / *that tests itself.* (bold line, then italic muted line)
+  - Alternative A: **I automate the checks** / *so releases don't wait.*
+  - Alternative B: **Tests, tools** / *and the systems around them.*
+- **Subline:** Test automation and the tools around it, plus full-stack and AI projects from hackathons and university.
+- **Buttons:** `View projects` → `/projects` · `Get in touch` → `/contact`
 
-Highlighted phrase (accent, max one): **the system that sorts our nightly regression failures**
+### Hero visual (illustration, not a screenshot)
 
-**What I'm working on:**
-> Right now: making a 360-scenario Playwright/Cucumber regression suite faster to triage, and keeping its Jenkins runs stable.
+An HTML/CSS mockup of a generic "regression failure routing" dashboard. All data is made up: owners "Owner A" to "Owner E", scenarios "Login flow", "Checkout", "Search filters", "Profile update", "Password reset", "Cart totals", a 7-night bar chart, and a status column that shows how each owner was found (Author map, Git history, Step keyword, Directory rule, Round-robin). No real names, states, URLs or ticket IDs.
 
-**Featured projects:** the first 3 featured cards from section 5, plus a `View all projects` link.
+- **Floating chips (real numbers only):** FOSS Hack 2025 winner · 800+ submissions · 3-4 hrs → 5-10 min
+- **Handwritten annotation with arrow:** this sorts itself every night
 
-**CTA card:**
+### Proof strip
+
+| Item | Line |
+|---|---|
+| FOSS Hack 2025 winner | Top project among 800+ submissions |
+| BMC Hackademia top 3 | RAG QnA bot for PDFs, 48-hour hackathon |
+| B.Tech CSE 2026 | Symbiosis Institute of Technology |
+
+### Selected work
+
+Heading: Selected work · link pill `View projects`. Cards use the approved project copy from section 5, in this order:
+1. Scribly (large, accent-tinted): one-liner, result, team line, GitHub + Demo video
+2. Regression failure-management system: one-liner, impact, "Internal tool at Vimo, details shared on request."
+3. Hope: one-liner, GitHub + Live
+4. Hotel Management System: one-liner, GitHub
+
+### Skills strip
+
+Heading: Tools I use. The 7 skill groups from section 4, as plain comma-separated lines.
+
+### Closing
+
 - Heading: Get in touch
 - Body: Questions about a project, or want to talk about test automation? Send me a message.
 - Button: Get in touch → `/contact`
 
-"Get in touch" is the only contact-intent label on the site. "Book a call" (Contact page) is a separate intent.
+"Get in touch" is the only contact-intent label on the page (nav, hero, closing). "View projects" is the only portfolio-intent label.
+
+Footer: © 2026 with ❤ by Sachin
 
 ---
 

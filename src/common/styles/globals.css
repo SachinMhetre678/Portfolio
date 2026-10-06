@@ -95,3 +95,21 @@
     }
   }
 }
+
+/* Home page only: warm off-white paper tone in light mode (dark tokens are unchanged). */
+html:not(.dark) .home-shell {
+  --canvas: 244 242 237;
+  --surface-1: 251 250 247;
+  --surface-2: 237 234 227;
+  --surface-3: 229 225 217;
+  --hairline: 224 220 211;
+  --hairline-strong: 199 194 183;
+  --ink: 24 24 22;
+  --ink-muted: 58 57 53;
+  --ink-subtle: 94 91 84;
+}
+
+/* Stagger helper: children set --i for their position in the sequence. */
+.stagger {
+  animation-delay: calc(var(--i, 0) * 90ms + var(--base, 0ms));
+}

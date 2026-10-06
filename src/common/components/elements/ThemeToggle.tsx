@@ -2,8 +2,9 @@ import { useTheme } from 'next-themes';
 import { PiMoon as MoonIcon, PiSun as SunIcon } from 'react-icons/pi';
 
 import useHasMounted from '@/common/hooks/useHasMounted';
+import cn from '@/common/libs/cn';
 
-const ThemeToggle = () => {
+const ThemeToggle = ({ className }: { className?: string }) => {
   const { resolvedTheme, setTheme } = useTheme();
   const hasMounted = useHasMounted();
 
@@ -15,7 +16,10 @@ const ThemeToggle = () => {
       type='button'
       onClick={() => setTheme(nextTheme)}
       aria-label={hasMounted ? `Switch to ${nextTheme} theme` : 'Toggle theme'}
-      className='inline-flex h-10 w-10 items-center justify-center rounded-control border border-hairline bg-surface-1 text-ink-muted transition-colors duration-150 hover:border-hairline-strong hover:bg-surface-2 hover:text-ink'
+      className={cn(
+        'inline-flex h-10 w-10 items-center justify-center rounded-control border border-hairline bg-surface-1 text-ink-muted transition-colors duration-150 hover:border-hairline-strong hover:bg-surface-2 hover:text-ink',
+        className
+      )}
     >
       {isDark ? (
         <SunIcon size={18} aria-hidden />

@@ -22,6 +22,7 @@ const twMerge = extendTailwindMerge({
         ],
       },
     ],
+    rounded: [{ rounded: ['chip', 'control', 'card'] }],
   },
 });
 

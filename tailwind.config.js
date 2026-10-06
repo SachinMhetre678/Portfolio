@@ -77,6 +77,20 @@ module.exports = {
         'skip-link': '60',
       },
       keyframes: {
+        reveal: {
+          from: { opacity: '0', transform: 'translateY(18px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'row-in': {
+          from: { opacity: '0', transform: 'translateX(-10px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+        'fade-out': { from: { opacity: '1' }, to: { opacity: '0' } },
+        'grow-y': {
+          from: { transform: 'scaleY(0)' },
+          to: { transform: 'scaleY(1)' },
+        },
         wave: {
           '0%': { transform: 'rotate(0deg)' },
           '15%': { transform: 'rotate(14deg)' },
@@ -89,6 +103,11 @@ module.exports = {
       },
       animation: {
         'wave-once': 'wave 1.2s ease-in-out 0.3s 1',
+        reveal: 'reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) both',
+        'row-in': 'row-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both',
+        'fade-in': 'fade-in 300ms ease-out both',
+        'fade-out': 'fade-out 300ms ease-out forwards',
+        'grow-y': 'grow-y 800ms cubic-bezier(0.16, 1, 0.3, 1) both',
       },
     },
   },
