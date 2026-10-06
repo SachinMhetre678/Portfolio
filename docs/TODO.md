@@ -4,7 +4,7 @@ Items that need Sachin, plus follow-ups from the redesign. Updated 2026-10-06.
 
 ## Waiting on Sachin
 
-- [ ] **Resume PDF:** add the file as `public/resume.pdf`. The About page links to `/resume.pdf`, and the link stays hidden until the file exists.
+- [ ] **Resume PDF:** add the file as `public/resume.pdf`. The About and Contact pages link to `/resume.pdf`, and the links stay hidden until the file exists.
 - [ ] **HSC stream and board:** the site shows only "HSC · Arihant College, Pune · 2020 - 2022". Add the stream and board when confirmed.
 - [ ] **CodeDrop demo:** check `https://codedrop.vercel.app/` in a browser (automated checks got 429). Keep or remove the Live link.
 - [ ] **Hotel Management System screenshot:** optional. The card works without one (`hotel.png` belongs to Hotel Revenue Analysis).

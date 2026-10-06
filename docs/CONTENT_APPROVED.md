@@ -19,11 +19,11 @@ Copy rules (from DESIGN_SYSTEM.md): sentence case, no em-dashes or en-dashes in 
 
 | Slot | Copy |
 |---|---|
-| Sidebar name | Sachin Mhetre |
-| Sidebar status | Associate QA Automation Engineer @ Vimo |
+| Nav name | Sachin Mhetre (floating pill nav on every page, sidebar removed 2026-10-06) |
+| Job title | Shown only in the About experience timeline (the old sidebar status line is gone) |
 | Nav | Home · About · Projects · Contact (4 pages, routes unchanged) |
 | Footer | © 2026 with ❤ by Sachin (restyled per DESIGN_SYSTEM.md) |
-| Avatar alt | Sachin Mhetre |
+| Portrait | `public/images/sachin-portrait.jpg` (hero, nav avatar, About header, Open Graph image). Alt: Sachin Mhetre |
 | SEO title (home) | Sachin Mhetre · QA Automation Engineer |
 | SEO title pattern | `{Page} · Sachin Mhetre` |
 | Meta description | QA automation engineer in Pune. I build test automation and the tooling around it with Java, Playwright, Cucumber and Jenkins. |
@@ -93,6 +93,16 @@ Footer: © 2026 with ❤ by Sachin
 
 ### Intro
 
+Revised 2026-10-06 (pending Sachin's review): header is badge `About` + **A bit about me.** / *the short version.* + the approved subtitle, with a small portrait. The intro now leads with who I am, same facts, job paragraph second; the outside-work line is shown last as its own note. Section order: intro, Achievements, Experience, Education, Skills, outside-work note, resume (hidden until the file exists).
+
+> I'm Sachin, from Pune. I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026), and I like building test automation and the tools around it. Outside QA I've built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.
+>
+> At work I'm a QA automation engineer at Vimo. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.
+>
+> Outside work: I captained my Kho-Kho team in junior college, play the tabla, and play a few sports and esports.
+
+Previous version (superseded):
+
 > I'm a QA automation engineer at Vimo in Pune. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.
 >
 > I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026). Outside QA I've built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.
@@ -154,7 +164,7 @@ The old "Pune University" and "Secondary School" labels are removed. Stream and 
 ## 5. Projects
 
 **Page title:** Projects
-**Page subtitle:** Things I've built at work, in hackathons and at university.
+**Page header (2026-10-06):** badge `Projects`, headline **Things I've built** / *at work, in hackathons and at university.* (the approved subtitle, split into two tones). Featured cards show in this order: Scribly, failure management, Hope, Hotel Management, then RAG and Personal Finance. Cards keep the full approved copy. Hope and RAG use a typographic panel (Face/Voice/Text, PDF/FAISS/Answer) instead of a screenshot. "Earlier work" is a grid of compact cards.
 
 ### Featured
 
@@ -239,7 +249,7 @@ Categories: All · Automation · Full stack · AI/ML · Data. The selected categ
 ## 6. Contact
 
 **Page title:** Contact
-**Page subtitle:** The fastest way to reach me is email.
+**Page header (2026-10-06):** badge `Contact`, headline **Let's talk.** / *the fastest way is email.* Email is a large copy-to-clipboard card (`Copy email`, `Send email`). Social pills: GitHub, LinkedIn, X, Instagram, under the label `Find me online`. The resume card appears only once `public/resume.pdf` exists (TODO).
 
 | Label | Value |
 |---|---|
