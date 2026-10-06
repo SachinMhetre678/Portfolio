@@ -49,7 +49,7 @@ export const AboutBlock = () => (
       </h2>
       <div>
         <p className='max-w-[60ch] text-body-lg text-ink-muted'>
-          I&apos;m a QA automation engineer in Pune, and I like building the
+          I&apos;m an automation engineer in Pune, and I like building the
           tooling around the tests. I studied Computer Science and Engineering
           at Symbiosis Institute of Technology, and my team won FOSS Hack 2025.
           Outside work, I captained my Kho-Kho team in junior college, play the

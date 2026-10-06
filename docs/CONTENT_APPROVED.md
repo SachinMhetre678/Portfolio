@@ -10,7 +10,7 @@ Copy rules (from DESIGN_SYSTEM.md): sentence case, no em-dashes or en-dashes in 
 
 ## 1. Positioning
 
-**Primary story:** QA automation engineer who builds the tooling around the tests. Java backend + Playwright/Cucumber + CI.
+**Primary story:** Automation engineer who builds the tooling around the tests. Java backend + Playwright/Cucumber + CI.
 **Secondary theme:** full-stack apps and AI/ML/cloud projects from university and hackathons.
 
 ---
@@ -24,9 +24,9 @@ Copy rules (from DESIGN_SYSTEM.md): sentence case, no em-dashes or en-dashes in 
 | Nav | Home · About · Projects · Contact (4 pages, routes unchanged) |
 | Footer | © 2026 with ❤ by Sachin (restyled per DESIGN_SYSTEM.md) |
 | Portrait | `public/images/sachin-portrait.jpg` (hero, nav avatar, About header, Open Graph image). Alt: Sachin Mhetre |
-| SEO title (home) | Sachin Mhetre · QA Automation Engineer |
+| SEO title (home) | Sachin Mhetre · Automation Engineer |
 | SEO title pattern | `{Page} · Sachin Mhetre` |
-| Meta description | QA automation engineer in Pune. I build test automation and the tooling around it with Java, Playwright, Cucumber and Jenkins. |
+| Meta description | Automation engineer in Pune. I build test automation and the tooling around it with Java, Playwright, Cucumber and Jenkins. |
 
 ---
 
@@ -95,9 +95,9 @@ Footer: © 2026 with ❤ by Sachin
 
 Revised 2026-10-06 (pending Sachin's review): header is badge `About` + **A bit about me.** / *the short version.* + the approved subtitle, with a small portrait. The intro now leads with who I am, same facts, job paragraph second; the outside-work line is shown last as its own note. Section order: intro, Achievements, Experience, Education, Skills, outside-work note, resume (hidden until the file exists).
 
-> I'm Sachin, from Pune. I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026), and I like building test automation and the tools around it. Outside QA I've built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.
+> I'm Sachin, from Pune. I studied Computer Science and Engineering at Symbiosis Institute of Technology (2022 - 2026), and I like building test automation and the tools around it. Beyond test automation I've built full-stack web apps and machine learning projects, and my team won FOSS Hack 2025.
 >
-> At work I'm a QA automation engineer at Vimo. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.
+> At work I'm an automation engineer at Vimo. I write end-to-end UI tests in Playwright and Cucumber, and I build the Java tooling that keeps a large regression suite manageable: failure analysis, ownership routing, reporting and Jira integration.
 >
 > Outside work: I captained my Kho-Kho team in junior college, play the tabla, and play a few sports and esports.
 
