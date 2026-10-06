@@ -1,4 +1,4 @@
-import { 
+import {
   SiCss3,
   SiFirebase,
   SiJavascript,
@@ -24,11 +24,11 @@ import {
   SiWordpress,
   SiDocker,
   SiSvelte,
-  SiVercel, 
+  SiVercel,
   SiExpress,
   SiSqlite,
-  SiTensorflow, 
-  SiGoogle, 
+  SiTensorflow,
+  SiGoogle,
   SiMinds,
   SiHtml5,
   SiPowerbi,
@@ -41,14 +41,9 @@ import {
   SiAdobepremierepro,
 } from 'react-icons/si';
 
-import { 
-  FaJava,
-  FaReact,
-} from 'react-icons/fa';
+import { FaJava, FaReact } from 'react-icons/fa';
 
-import { 
-  BsFillBootstrapFill,
-} from 'react-icons/bs';
+import { BsFillBootstrapFill } from 'react-icons/bs';
 
 export type stacksProps = {
   [key: string]: JSX.Element;
@@ -70,24 +65,34 @@ export const STACKS: stacksProps = {
   'Next.js': <SiNextdotjs size={iconSize} />,
   'React.js': <SiReact size={iconSize} className='text-sky-500' />,
   TailwindCSS: <SiTailwindcss size={iconSize} className='text-teal-500' />,
-  Bootstrap: <BsFillBootstrapFill size={iconSize} className='text-indigo-500' />,
+  Bootstrap: (
+    <BsFillBootstrapFill size={iconSize} className='text-indigo-500' />
+  ),
   WordPress: <SiWordpress size={iconSize} />,
   'Material UI': <SiMui size={iconSize} className='text-sky-400' />,
   Vite: <SiVite size={iconSize} className='text-purple-500' />,
   Firebase: <SiFirebase size={iconSize} className='text-yellow-400' />,
   'Node.js': <SiNodedotjs size={iconSize} className='text-green-400' />,
   Redux: <SiRedux size={iconSize} className='text-purple-600' />,
-  'Styled Components': <SiStyledcomponents size={iconSize} className='text-pink-500' />,
+  'Styled Components': (
+    <SiStyledcomponents size={iconSize} className='text-pink-500' />
+  ),
   CSS: <SiCss3 size={iconSize} className='text-indigo-500' />,
   Flask: <SiFlask size={iconSize} className='text-green-600' />,
   Figma: <SiFigma size={iconSize} className='text-pink-500' />,
-  Svelte: <SiSvelte size={iconSize} className='text-orange-500' />,    
-  Vercel: <SiVercel size={iconSize} className='text-black-600' />,  
+  Svelte: <SiSvelte size={iconSize} className='text-orange-500' />,
+  Vercel: <SiVercel size={iconSize} className='text-black-600' />,
   'React Native': <FaReact size={iconSize} className='text-sky-500' />,
   SQLite: <SiSqlite size={iconSize} className='text-green-500' />,
-  'Machine Learning': <SiTensorflow size={iconSize} className='text-orange-600' />,
-  'Artificial Intelligence': <SiTensorflow size={iconSize} className='text-orange-600'/>,
-  'Natural Language Processing': <SiTensorflow size={iconSize} className='text-orange-600'/>,
+  'Machine Learning': (
+    <SiTensorflow size={iconSize} className='text-orange-600' />
+  ),
+  'Artificial Intelligence': (
+    <SiTensorflow size={iconSize} className='text-orange-600' />
+  ),
+  'Natural Language Processing': (
+    <SiTensorflow size={iconSize} className='text-orange-600' />
+  ),
   PowerBI: <SiPowerbi size={iconSize} className='text-yellow-500' />,
   Kubernetes: <SiKubernetes size={iconSize} className='text-blue-500' />,
   Excel: <SiMicrosoftexcel size={iconSize} className='text-green-600' />,
@@ -97,5 +102,7 @@ export const STACKS: stacksProps = {
   C: <SiC size={iconSize} className='text-blue-600' />,
   Express: <SiExpress size={iconSize} className='text-gray-600' />,
   'Java Swing': <FaJava size={iconSize} className='text-red-600' />,
-  'Video Editing': <SiAdobepremierepro size={iconSize} className='text-purple-700' />,
+  'Video Editing': (
+    <SiAdobepremierepro size={iconSize} className='text-purple-700' />
+  ),
 };

@@ -13,3 +13,9 @@ export type MenuItemProps = {
   hideIcon?: boolean;
   type?: string;
 };
+
+export type NavItem = {
+  title: string;
+  href: string;
+  icon: JSX.Element;
+};

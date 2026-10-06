@@ -1,17 +1,9 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 
-interface ContainerProps {
-  children: ReactNode;
-  className?: string;
-  [propName: string]: ReactNode | string | undefined;
-}
+import cn from '@/common/libs/cn';
 
-const Container = ({ children, className = '', ...others }: ContainerProps) => {
-  return (
-    <div className={`mt-20 mb-10 lg:mt-0 p-8 ${className} `} {...others}>
-      {children}
-    </div>
-  );
-};
+const Container = ({ className, ...rest }: HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn('space-y-12 md:space-y-16', className)} {...rest} />
+);
 
 export default Container;

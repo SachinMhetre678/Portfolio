@@ -1,44 +1,56 @@
-import AOS from 'aos';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import type { AppProps } from 'next/app';
-import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
-import { useEffect } from 'react';
 
-import 'tailwindcss/tailwind.css';
-import 'aos/dist/aos.css';
 import '@/common/styles/globals.css';
 
 import Layout from '@/common/components/layouts';
-import { firaCode, jakartaSans, soraSans } from '@/common/styles/fonts';
-
-const ProgressBar = dynamic(
-  () => import('src/common/components/elements/ProgressBar'),
-  { ssr: false }
-);
+import { SITE } from '@/common/constant/site';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      delay: 50,
-    });
-  }, []);
+  const { pathname } = useRouter();
+  const url = `${SITE.url}${pathname === '/' ? '' : pathname}`;
 
   return (
     <>
       <style jsx global>
         {`
           html {
-            --jakartaSans-font: ${jakartaSans.style.fontFamily};
-            --soraSans-font: ${soraSans.style.fontFamily};
-            --firaCode-font: ${firaCode.style.fontFamily};
+            --font-sans: ${GeistSans.style.fontFamily};
+            --font-mono: ${GeistMono.style.fontFamily};
           }
         `}
       </style>
 
-      <ThemeProvider attribute='class' defaultTheme='dark'>
+      <DefaultSeo
+        titleTemplate={`%s · ${SITE.name}`}
+        defaultTitle={SITE.title}
+        description={SITE.description}
+        canonical={url}
+        openGraph={{
+          type: 'website',
+          locale: 'en_IN',
+          url,
+          siteName: SITE.name,
+          title: SITE.title,
+          description: SITE.description,
+          images: [
+            {
+              url: `${SITE.url}${SITE.ogImage}`,
+              width: 1200,
+              height: 630,
+              alt: SITE.title,
+            },
+          ],
+        }}
+        twitter={{ handle: SITE.twitter, cardType: 'summary_large_image' }}
+      />
+
+      <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
         <Layout>
-          <ProgressBar />
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

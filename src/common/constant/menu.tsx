@@ -1,4 +1,3 @@
-import { BiRocket as ContactIcon } from 'react-icons/bi';
 import {
   BsEnvelopeAtFill as EmailIcon,
   BsGithub as GithubIcon,
@@ -7,52 +6,29 @@ import {
   BsTwitter as TwitterIcon,
 } from 'react-icons/bs';
 import {
-  FiCoffee as ProjectIcon,
-  FiCpu as DashboardIcon,
-  FiPocket as HomeIcon,
-  FiUser as ProfileIcon,
-} from 'react-icons/fi';
+  PiEnvelopeSimple as ContactNavIcon,
+  PiFolderSimple as ProjectsIcon,
+  PiHouse as HomeIcon,
+  PiUser as AboutIcon,
+} from 'react-icons/pi';
 
-import { MenuItemProps } from '../types/menu';
+import { MenuItemProps, NavItem } from '../types/menu';
 
 const iconSize = 20;
+const navIconSize = 18;
 
-export const MENU_ITEMS: MenuItemProps[] = [
-  {
-    title: 'Home',
-    href: '/',
-    icon: <HomeIcon size={iconSize} />,
-    isShow: true,
-    isExternal: false,
-    eventName: 'Pages: Home',
-    type: 'Pages',
-  },
-  {
-    title: 'About',
-    href: '/about',
-    icon: <ProfileIcon size={iconSize} />,
-    isShow: true,
-    isExternal: false,
-    eventName: 'Pages: About',
-    type: 'Pages',
-  },
+export const MENU_ITEMS: NavItem[] = [
+  { title: 'Home', href: '/', icon: <HomeIcon size={navIconSize} /> },
+  { title: 'About', href: '/about', icon: <AboutIcon size={navIconSize} /> },
   {
     title: 'Projects',
     href: '/projects',
-    icon: <ProjectIcon size={iconSize} />,
-    isShow: true,
-    isExternal: false,
-    eventName: 'Pages: Projects',
-    type: 'Pages',
+    icon: <ProjectsIcon size={navIconSize} />,
   },
   {
     title: 'Contact',
     href: '/contact',
-    icon: <ContactIcon size={iconSize} />,
-    isShow: true,
-    isExternal: false,
-    eventName: 'Pages: Contact',
-    type: 'Pages',
+    icon: <ContactNavIcon size={navIconSize} />,
   },
 ];
 

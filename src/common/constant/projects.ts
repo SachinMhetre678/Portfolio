@@ -41,7 +41,15 @@ export const PROJECTSLIST: ProjectsProps = {
       image: '/images/projects/medisync.jpg',
       link_demo: 'https://mediisync.vercel.app/',
       link_github: 'https://github.com/SachinMhetre678/MediSync',
-      stacks: ['React.js', 'MongoDB', 'Node.js', 'OpenAI', 'Figma', 'Redux', 'JavaScript'],
+      stacks: [
+        'React.js',
+        'MongoDB',
+        'Node.js',
+        'OpenAI',
+        'Figma',
+        'Redux',
+        'JavaScript',
+      ],
       category: 'Web Development', // Added category
       content: '',
       is_show: true,
@@ -55,8 +63,18 @@ export const PROJECTSLIST: ProjectsProps = {
         'This project leverages machine learning techniques to detect heart disease early by analyzing a comprehensive dataset of risk factors. By identifying high-risk individuals, it enables timely medical intervention, aiming to improve health outcomes.',
       image: '/images/projects/heart.jpeg',
       link_demo: '#',
-      link_github: 'https://github.com/SachinMhetre678/Heart_Disease_Prediction',
-      stacks: ['React.js', 'JavaScript', 'Python', 'CSS', 'HTML5', 'Flask', 'SQLite', 'Natural Language Processing'],
+      link_github:
+        'https://github.com/SachinMhetre678/Heart_Disease_Prediction',
+      stacks: [
+        'React.js',
+        'JavaScript',
+        'Python',
+        'CSS',
+        'HTML5',
+        'Flask',
+        'SQLite',
+        'Natural Language Processing',
+      ],
       category: 'Machine Learning', // Added category
       content: '',
       is_show: true,
@@ -71,7 +89,13 @@ export const PROJECTSLIST: ProjectsProps = {
       image: '/images/projects/platesniper.gif',
       link_demo: '#',
       link_github: 'https://github.com/SachinMhetre678/PlateSniper',
-      stacks: ['React.js', 'JavaScript', 'CSS', 'HTML5', 'Natural Language Processing'],
+      stacks: [
+        'React.js',
+        'JavaScript',
+        'CSS',
+        'HTML5',
+        'Natural Language Processing',
+      ],
       category: 'Machine Learning', // Added category
       content: '',
       is_show: true,
@@ -85,7 +109,8 @@ export const PROJECTSLIST: ProjectsProps = {
         'The Personal Finance Management System, built with Java Swing and MySQL, allows users to track transactions, monitor financial habits, and visualize monthly data through charts.',
       image: '/images/projects/fintrack.png',
       link_demo: '#',
-      link_github: 'https://github.com/SachinMhetre678/Personal_Finance_Management',
+      link_github:
+        'https://github.com/SachinMhetre678/Personal_Finance_Management',
       stacks: ['Java', 'MySQL', 'HTML5'],
       category: 'Web Development', // Added category
       content: '',
@@ -100,7 +125,8 @@ export const PROJECTSLIST: ProjectsProps = {
         'This project analyzes Cricket T20 World Cup 2022 data to build an ideal "Best 11" team. It covers data scraping, cleaning, modeling, and visualization using Python, Power Query, and Power BI.',
       image: '/images/projects/crickett20.png',
       link_demo: '#',
-      link_github: 'https://github.com/SachinMhetre678/Data-Analysis/tree/main/Cricket_t20_Analysis',
+      link_github:
+        'https://github.com/SachinMhetre678/Data-Analysis/tree/main/Cricket_t20_Analysis',
       stacks: ['PowerBI'],
       category: 'Data Analysis', // Added category
       content: '',
@@ -115,7 +141,8 @@ export const PROJECTSLIST: ProjectsProps = {
         'This project involves transforming data with Power Query, building metrics using DAX, and creating a dashboard that aligns with business goals.',
       image: '/images/projects/hotel.png',
       link_demo: '#',
-      link_github: 'https://github.com/SachinMhetre678/Data-Analysis/tree/main/hotel_revenue',
+      link_github:
+        'https://github.com/SachinMhetre678/Data-Analysis/tree/main/hotel_revenue',
       stacks: ['PowerBI'],
       category: 'Data Analysis', // Added category
       content: '',

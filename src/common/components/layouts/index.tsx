@@ -1,42 +1,59 @@
-import clsx from 'clsx';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Head from 'next/head';
 import { useTheme } from 'next-themes';
 import { ReactNode } from 'react';
 
-import useHasMounted from '@/common/hooks/useHasMounted';
-
-import HeaderSidebar from './header/HeaderSidebar';
-
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from '@vercel/analytics/next';
+import MobileHeader from './MobileHeader';
+import SidebarContent from './SidebarContent';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+const THEME_COLOR = { dark: '#0b0c0e', light: '#f7f8f8' };
+
 const Layout = ({ children }: LayoutProps) => {
   const { resolvedTheme } = useTheme();
-  const hasMounted = useHasMounted();
-
-  const isDarkTheme =
-    hasMounted && (resolvedTheme === 'dark' || resolvedTheme === 'system');
 
   return (
     <>
-      <div
-        className={clsx(
-          'max-w-6xl mx-auto lg:px-8',
-          isDarkTheme ? 'dark:text-darkText' : ''
-        )}
+      <Head>
+        <meta
+          name='theme-color'
+          content={
+            resolvedTheme === 'light' ? THEME_COLOR.light : THEME_COLOR.dark
+          }
+        />
+      </Head>
+
+      <a
+        href='#main'
+        className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-skip-link focus:rounded-control focus:bg-accent focus:px-4 focus:py-2 focus:text-body-sm focus:font-medium focus:text-on-accent'
       >
-        <SpeedInsights />
-        <Analytics />
-        <div className='flex flex-col lg:flex-row lg:gap-5 lg:py-4 xl:pb-8'>
-          <HeaderSidebar />
-          <main className='lg:w-4/5 max-w-[854px] transition-all duration-300'>
-            {children}
-          </main>
-        </div>
+        Skip to content
+      </a>
+
+      <MobileHeader />
+
+      <div className='mx-auto flex max-w-6xl gap-12 px-4 md:px-6'>
+        <aside className='hidden w-[260px] shrink-0 lg:block'>
+          <div className='sticky top-0 h-[100dvh] py-12'>
+            <SidebarContent isPrimary />
+          </div>
+        </aside>
+
+        <main
+          id='main'
+          tabIndex={-1}
+          className='min-w-0 max-w-3xl flex-1 py-12 focus:outline-none lg:py-16'
+        >
+          {children}
+        </main>
       </div>
+
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 };
