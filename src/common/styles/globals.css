@@ -2,61 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Color tokens from docs/DESIGN_SYSTEM.md, section 3. Stored as RGB channels for Tailwind alpha. */
 :root {
-  --color-dark: #121212;
-  --color-light: #fafafa;
-}
-
-html {
-  scroll-behavior: smooth;
-  letter-spacing: 0.3px;
-}
-
-body {
-  background: radial-gradient(
-    ellipse 60% 50% at 50% -30%,
-    rgb(45 212 191 / 15%) 0%,
-    rgb(8 0 0 / 0%)
-  );
-}
-
-input,
-textarea,
-button,
-select,
-div,
-a {
-  -webkit-tap-highlight-color: transparent;
+  --canvas: 247 248 248;
+  --surface-1: 255 255 255;
+  --surface-2: 239 240 242;
+  --surface-3: 230 231 234;
+  --hairline: 227 228 231;
+  --hairline-strong: 201 203 208;
+  --ink: 22 23 26;
+  --ink-muted: 60 63 69;
+  --ink-subtle: 92 96 104;
+  --ink-disabled: 139 143 150;
+  --accent: 11 107 74;
+  --accent-hover: 9 90 62;
+  --on-accent: 255 255 255;
+  --accent-soft: rgb(11 107 74 / 0.08);
+  --header-height: 56px;
 }
 
 .dark {
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  --canvas: 11 12 14;
+  --surface-1: 17 18 20;
+  --surface-2: 23 24 27;
+  --surface-3: 29 30 34;
+  --hairline: 38 40 45;
+  --hairline-strong: 58 60 66;
+  --ink: 242 243 244;
+  --ink-muted: 201 206 214;
+  --ink-subtle: 149 154 163;
+  --ink-disabled: 107 112 121;
+  --accent: 63 191 143;
+  --accent-hover: 95 211 166;
+  --on-accent: 11 12 14;
+  --accent-soft: rgb(63 191 143 / 0.12);
 }
 
-.light {
-  background-color: var(--color-light);
-  color: var(--color-dark);
+@layer base {
+  html {
+    @apply bg-canvas font-sans text-body text-ink-muted antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-[100dvh] bg-canvas;
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink;
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent;
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+    @apply text-ink;
+  }
+
+  /* Keep anchored sections clear of the sticky mobile header. */
+  [id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation: none !important;
+    }
+  }
 }
 
-#nprogress .bar {
-  background: #15b8a6 !important;
-  height: 2px !important;
-  z-index: 9999999 !important;
+/* Site-wide: warm off-white paper tone in light mode (dark tokens are unchanged). */
+html:not(.dark) .home-shell {
+  --canvas: 244 242 237;
+  --surface-1: 251 250 247;
+  --surface-2: 237 234 227;
+  --surface-3: 229 225 217;
+  --hairline: 224 220 211;
+  --hairline-strong: 199 194 183;
+  --ink: 24 24 22;
+  --ink-muted: 58 57 53;
+  --ink-subtle: 94 91 84;
 }
 
-#nprogress .bar {
-  position: fixed !important;
-}
-
-::-webkit-scrollbar {
-  @apply w-1;
-}
-
-::-webkit-scrollbar-track {
-  @apply rounded-[3px] bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply rounded-[3px] border-2 border-neutral-300 bg-neutral-600 dark:bg-neutral-400;
+/* Stagger helper: children set --i for their position in the sequence. */
+.stagger {
+  animation-delay: calc(var(--i, 0) * 90ms + var(--base, 0ms));
 }

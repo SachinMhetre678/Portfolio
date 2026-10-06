@@ -1,61 +1,49 @@
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Head from 'next/head';
 import { useTheme } from 'next-themes';
 import { ReactNode } from 'react';
 
-import useHasMounted from '@/common/hooks/useHasMounted';
-
-import HeaderSidebar from './header/HeaderSidebar';
-import HeaderTop from './header/HeaderTop';
-
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from '@vercel/analytics/next';
+import Footer from './Footer';
+import PillNav from './PillNav';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+const THEME_COLOR = { dark: '#0b0c0e', light: '#f4f2ed' };
+
 const Layout = ({ children }: LayoutProps) => {
   const { resolvedTheme } = useTheme();
-  const hasMounted = useHasMounted();
-
-  const isDarkTheme =
-    hasMounted && (resolvedTheme === 'dark' || resolvedTheme === 'system');
-
-  const router = useRouter();
-  const pageName = router.pathname.split('/')[1];
-
-  const isFullPageHeader =
-
-    pageName === 'playground' ||
-    pageName === 'blog' ||
-    router.pathname.startsWith('/blog/') ||
-    router.pathname.startsWith('/learn/');
 
   return (
     <>
-      <div
-        className={clsx(
-          'max-w-6xl mx-auto lg:px-8',
-          isDarkTheme ? 'dark:text-darkText' : ''
-        )}
+      <Head>
+        <meta
+          name='theme-color'
+          content={
+            resolvedTheme !== 'light' ? THEME_COLOR.dark : THEME_COLOR.light
+          }
+        />
+      </Head>
+
+      <a
+        href='#main'
+        className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-skip-link focus:rounded-control focus:bg-accent focus:px-4 focus:py-2 focus:text-body-sm focus:font-medium focus:text-on-accent'
       >
-        <SpeedInsights />
-        <Analytics />
-        {isFullPageHeader ? (
-          <div className='flex flex-col xl:pb-8'>
-            <HeaderTop />
-            <main className='transition-all duration-300'>{children}</main>
-          </div>
-        ) : (
-          <div className='flex flex-col lg:flex-row lg:gap-5 lg:py-4 xl:pb-8'>
-            <HeaderSidebar />
-            <main className='lg:w-4/5 max-w-[854px] transition-all duration-300'>
-              {children}
-            </main>
-          </div>
-        )}
+        Skip to content
+      </a>
+
+      <div className='home-shell min-h-[100dvh] bg-canvas'>
+        <PillNav />
+        <main id='main' tabIndex={-1} className='focus:outline-none'>
+          {children}
+        </main>
+        <Footer />
       </div>
+
+      <SpeedInsights />
+      <Analytics />
     </>
   );
 };

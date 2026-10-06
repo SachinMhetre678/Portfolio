@@ -1,17 +1,21 @@
-import Breakline from '@/common/components/elements/Breakline';
+import Hero from './Hero';
+import {
+  AboutBlock,
+  Closing,
+  ProofStrip,
+  SelectedWork,
+  SkillsStrip,
+} from './Sections';
 
-import Introduction from './Introduction';
-import Services from './Services';
-
-const Home = () => {
-  return (
-    <>
-      <Introduction />
-      {/* <Breakline className='mt-8 mb-7' /> */}
-      <Breakline className='my-8' />
-      <Services />
-    </>
-  );
-};
+const Home = () => (
+  <>
+    <Hero />
+    <ProofStrip />
+    <AboutBlock />
+    <SelectedWork />
+    <SkillsStrip />
+    <Closing />
+  </>
+);
 
 export default Home;

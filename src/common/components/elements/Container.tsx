@@ -1,17 +1,16 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 
-interface ContainerProps {
-  children: ReactNode;
-  className?: string;
-  [propName: string]: ReactNode | string | undefined;
-}
+import cn from '@/common/libs/cn';
 
-const Container = ({ children, className = '', ...others }: ContainerProps) => {
-  return (
-    <div className={`mt-20 mb-10 lg:mt-0 p-8 ${className} `} {...others}>
-      {children}
-    </div>
-  );
-};
+// Page body below the floating nav: same max width and gutters as the home sections.
+const Container = ({ className, ...rest }: HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      'mx-auto max-w-7xl space-y-16 px-4 pb-16 pt-28 md:space-y-24 md:px-8 md:pb-24 md:pt-36',
+      className
+    )}
+    {...rest}
+  />
+);
 
 export default Container;
