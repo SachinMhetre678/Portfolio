@@ -61,7 +61,7 @@ export const FEATURED_PROJECTS: Project[] = [
   {
     slug: 'rag-document-qa',
     title: 'RAG document Q&A',
-    context: 'BMC Hackademia top 3 finalist',
+    context: 'BMC Hackademia top 3 finalist · 48-hour hackathon',
     oneLiner: 'Upload a PDF and ask questions about it.',
     details: [
       'Upload one or more PDFs. They are split into chunks, embedded with Hugging Face all-MiniLM-L6-v2 and indexed in FAISS.',

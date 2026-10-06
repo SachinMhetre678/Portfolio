@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import TextLink from '@/common/components/elements/TextLink';
 import { SKILLS } from '@/common/constant/about';
 import { FEATURED_PROJECTS } from '@/common/constant/projects';
@@ -5,7 +7,7 @@ import WorkCard from '@/modules/projects/components/WorkCard';
 
 import { PillLink } from '@/common/components/elements/PillLink';
 
-const PROOF = [
+const PROOF: { title: string; text: string; href?: string }[] = [
   {
     title: 'FOSS Hack 2025 winner',
     text: 'Top project among 800+ submissions',
@@ -13,6 +15,7 @@ const PROOF = [
   {
     title: 'BMC Hackademia top 3',
     text: 'RAG QnA bot for PDFs, 48-hour hackathon',
+    href: '/projects#rag-document-qa',
   },
   { title: 'B.Tech CSE 2026', text: 'Symbiosis Institute of Technology' },
 ];
@@ -20,10 +23,21 @@ const PROOF = [
 export const ProofStrip = () => (
   <section aria-label='Highlights' className='border-y border-hairline'>
     <ul className='mx-auto grid max-w-7xl divide-y divide-hairline px-4 md:grid-cols-3 md:divide-x md:divide-y-0 md:px-8'>
-      {PROOF.map(({ title, text }) => (
+      {PROOF.map(({ title, text, href }) => (
         <li key={title} className='py-6 md:px-8 md:py-8 md:first:pl-0'>
-          <p className='text-h3 text-ink'>{title}</p>
-          <p className='mt-1 text-body-sm text-ink-subtle'>{text}</p>
+          {href ? (
+            <Link href={href} className='group block'>
+              <p className='text-h3 text-ink group-hover:text-accent'>
+                {title}
+              </p>
+              <p className='mt-1 text-body-sm text-ink-subtle'>{text}</p>
+            </Link>
+          ) : (
+            <>
+              <p className='text-h3 text-ink'>{title}</p>
+              <p className='mt-1 text-body-sm text-ink-subtle'>{text}</p>
+            </>
+          )}
         </li>
       ))}
     </ul>

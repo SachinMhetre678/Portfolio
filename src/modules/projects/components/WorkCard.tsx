@@ -73,6 +73,16 @@ const WorkVisual = ({ project }: { project: Project }) => {
       />
     );
   }
+  if (slug === 'rag-document-qa') {
+    return (
+      <PosterVisual
+        src='/images/projects/rag-qna.webp'
+        alt='Project poster for RAG Document Q&A, a concept layout rather than the running app: a window titled Chat with Your Documents showing questions and answers with page sources, a list of uploaded PDFs, a how-it-works flow from upload to chunks, embeddings, FAISS index and an LLM via Groq, and a tech stack of Python, Flask, LangChain, FAISS, Hugging Face and Groq.'
+        position='object-top'
+        className={VISUAL_HEIGHT}
+      />
+    );
+  }
   const images: Record<string, { src: string; alt: string }> = {
     'hotel-management-system': {
       src: '/images/projects/hotel.png',
@@ -97,27 +107,7 @@ const WorkVisual = ({ project }: { project: Project }) => {
       </div>
     );
   }
-  // No screenshot for these: a typographic panel built from the approved detail lines.
-  const steps = slug === 'rag-document-qa' ? ['PDF', 'FAISS', 'Answer'] : null;
-  if (!steps) return null;
-  return (
-    <div
-      aria-hidden
-      className={cn(
-        'flex items-center justify-center gap-3 bg-accent-soft font-mono text-mono text-accent',
-        VISUAL_HEIGHT
-      )}
-    >
-      {steps.map((label) => (
-        <span
-          key={label}
-          className='rounded-full border border-accent/30 bg-surface-1 px-4 py-2'
-        >
-          {label}
-        </span>
-      ))}
-    </div>
-  );
+  return null;
 };
 
 interface WorkCardProps {
