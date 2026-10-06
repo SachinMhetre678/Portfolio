@@ -96,7 +96,7 @@
   }
 }
 
-/* Home page only: warm off-white paper tone in light mode (dark tokens are unchanged). */
+/* Site-wide: warm off-white paper tone in light mode (dark tokens are unchanged). */
 html:not(.dark) .home-shell {
   --canvas: 244 242 237;
   --surface-1: 251 250 247;

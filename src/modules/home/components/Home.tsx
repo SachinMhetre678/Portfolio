@@ -1,5 +1,3 @@
-import { Copyright } from '@/common/components/layouts/SidebarContent';
-
 import Hero from './Hero';
 import {
   AboutBlock,
@@ -17,9 +15,6 @@ const Home = () => (
     <SelectedWork />
     <SkillsStrip />
     <Closing />
-    <footer className='mx-auto max-w-7xl px-4 pb-10 md:px-8'>
-      <Copyright />
-    </footer>
   </>
 );
 

@@ -11,8 +11,8 @@ import cn from '@/common/libs/cn';
 const pillLink =
   'inline-flex h-9 items-center rounded-full px-3.5 text-body-sm transition-colors duration-150';
 
-// Floating pill nav used on the home page instead of the sidebar.
-const HomeNav = () => {
+// Floating pill nav shown on every page.
+const PillNav = () => {
   const { pathname, events } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -45,13 +45,15 @@ const HomeNav = () => {
           href='/'
           className='inline-flex h-10 items-center gap-2.5 rounded-full pl-1 pr-3 text-body-sm font-medium text-ink'
         >
-          <Image
-            src='/images/sachin.jpg'
-            alt=''
-            width={36}
-            height={36}
-            className='h-9 w-9 rounded-full object-cover object-top'
-          />
+          <span className='relative h-9 w-9 overflow-hidden rounded-full'>
+            <Image
+              src='/images/sachin-portrait.jpg'
+              alt=''
+              fill
+              sizes='72px'
+              className='origin-[50%_25%] scale-[1.8] object-cover object-[50%_15%]'
+            />
+          </span>
           Sachin Mhetre
         </Link>
 
@@ -91,7 +93,7 @@ const HomeNav = () => {
             onClick={() => setIsOpen((open) => !open)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
-            aria-controls='home-menu'
+            aria-controls='site-menu'
             className='inline-flex h-10 w-10 items-center justify-center rounded-full text-ink-muted transition-colors duration-150 hover:bg-surface-2 hover:text-ink md:hidden'
           >
             {isOpen ? (
@@ -104,7 +106,7 @@ const HomeNav = () => {
       </nav>
 
       <div
-        id='home-menu'
+        id='site-menu'
         hidden={!isOpen}
         className='mx-auto mt-2 max-w-5xl rounded-[28px] border border-hairline bg-surface-1 p-2 md:hidden'
       >
@@ -139,4 +141,4 @@ const HomeNav = () => {
   );
 };
 
-export default HomeNav;
+export default PillNav;

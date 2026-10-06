@@ -1,12 +1,13 @@
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
-import { ButtonLink } from '@/common/components/elements/Button';
+import Container from '@/common/components/elements/Container';
+import { PillLink } from '@/common/components/elements/PillLink';
 
 const Custom404: NextPage = () => (
   <>
     <NextSeo title='Page not found' noindex />
-    <section className='flex min-h-[60dvh] flex-col items-start justify-center gap-6'>
+    <Container className='flex min-h-[70dvh] flex-col items-start justify-center gap-6 space-y-0 md:space-y-0'>
       <p className='font-mono text-mono text-ink-subtle'>404</p>
       <div className='space-y-3'>
         <h1 className='text-h1-mobile md:text-h1'>Page not found</h1>
@@ -14,8 +15,8 @@ const Custom404: NextPage = () => (
           This page doesn&apos;t exist or has moved.
         </p>
       </div>
-      <ButtonLink href='/'>Back to home</ButtonLink>
-    </section>
+      <PillLink href='/'>Back to home</PillLink>
+    </Container>
   </>
 );
 
