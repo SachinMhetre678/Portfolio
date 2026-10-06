@@ -1,7 +1,6 @@
 import AOS from 'aos';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 import { useEffect } from 'react';
 
@@ -17,7 +16,7 @@ const ProgressBar = dynamic(
   { ssr: false }
 );
 
-const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -37,14 +36,12 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
         `}
       </style>
 
-      <SessionProvider session={session}>
-        <ThemeProvider attribute='class' defaultTheme='dark'>
-          <Layout>
-            <ProgressBar />
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </SessionProvider>
+      <ThemeProvider attribute='class' defaultTheme='dark'>
+        <Layout>
+          <ProgressBar />
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 };
