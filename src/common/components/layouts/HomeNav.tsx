@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { PiList as MenuIcon, PiX as CloseIcon } from 'react-icons/pi';
 
+import Image from '@/common/components/elements/Image';
 import ThemeToggle from '@/common/components/elements/ThemeToggle';
 import { MENU_ITEMS } from '@/common/constant/menu';
 import cn from '@/common/libs/cn';
@@ -44,12 +45,13 @@ const HomeNav = () => {
           href='/'
           className='inline-flex h-10 items-center gap-2.5 rounded-full pl-1 pr-3 text-body-sm font-medium text-ink'
         >
-          <span
-            aria-hidden
-            className='inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink font-mono text-mono font-medium text-canvas'
-          >
-            SM
-          </span>
+          <Image
+            src='/images/sachin.jpg'
+            alt=''
+            width={36}
+            height={36}
+            className='h-9 w-9 rounded-full object-cover object-top'
+          />
           Sachin Mhetre
         </Link>
 

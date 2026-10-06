@@ -1,19 +1,13 @@
 import { CSSProperties, PointerEvent, useRef } from 'react';
 
+import Image from '@/common/components/elements/Image';
 import cn from '@/common/libs/cn';
 
-import { caveat, geistItalic } from '../fonts';
+import { geistItalic } from '../fonts';
 import { PillLink } from './Pill';
-import RoutingMockup from './RoutingMockup';
 
 const step = (i: number) => ({ '--i': i } as CSSProperties);
 const reveal = 'stagger motion-safe:animate-reveal';
-
-const CHIPS = [
-  { label: 'FOSS Hack 2025 winner', className: 'md:-right-6 md:-top-5' },
-  { label: '800+ submissions', className: 'md:-left-10 md:top-[30%]' },
-  { label: '3-4 hrs → 5-10 min', className: 'md:-bottom-5 md:left-12' },
-];
 
 const Hero = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -62,7 +56,7 @@ const Hero = () => {
               className={cn(reveal, 'block lg:whitespace-nowrap')}
               style={step(1)}
             >
-              I build software
+              Hi, I&apos;m Sachin.
             </span>
             <span
               className={cn(
@@ -72,7 +66,7 @@ const Hero = () => {
               )}
               style={step(2)}
             >
-              that tests itself.
+              I build things that work.
             </span>
           </h1>
 
@@ -83,8 +77,8 @@ const Hero = () => {
             )}
             style={step(3)}
           >
-            Test automation and the tools around it, plus full-stack and AI
-            projects from hackathons and university.
+            I like building test automation and the tools around it. I also make
+            full-stack and AI projects, from hackathons and university.
           </p>
 
           <div
@@ -99,56 +93,33 @@ const Hero = () => {
         </div>
 
         <div
-          className={cn(reveal, 'relative')}
+          className={cn(
+            reveal,
+            'relative mx-auto w-full max-w-[300px] lg:max-w-[360px]'
+          )}
           style={{ ...step(3), '--base': '120ms' } as CSSProperties}
         >
-          <RoutingMockup />
-
-          <ul className='mt-4 flex flex-wrap gap-2 md:mt-0 md:block'>
-            {CHIPS.map(({ label, className }, i) => (
-              <li
-                key={label}
-                className={cn(
-                  'stagger md:absolute motion-safe:animate-reveal',
-                  className
-                )}
-                style={{ '--i': i, '--base': '1100ms' } as CSSProperties}
-              >
-                <span className='inline-flex h-9 items-center whitespace-nowrap rounded-full border border-hairline bg-surface-1 px-4 font-mono text-mono text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.35)]'>
-                  {label}
-                </span>
-              </li>
-            ))}
-          </ul>
-
           <div
             aria-hidden
-            className='pointer-events-none absolute -bottom-[86px] right-2 hidden items-end gap-1 text-accent md:flex'
-          >
-            <svg
-              width='54'
-              height='60'
-              viewBox='0 0 54 60'
-              fill='none'
-              className='-mb-1'
-            >
-              <path
-                d='M48 56C30 54 12 44 8 8M8 8L2 18M8 8L16 15'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              />
-            </svg>
-            <span
-              className={cn(
-                caveat.className,
-                '-rotate-3 text-[22px] leading-none'
-              )}
-            >
-              this sorts itself every night
-            </span>
+            className='absolute -inset-6 -z-10 rounded-full bg-accent/20 blur-3xl'
+          />
+          <div className='rotate-3 overflow-hidden rounded-[999px_999px_32px_32px] border border-accent/40 bg-surface-1 p-2 shadow-[0_0_0_6px_var(--accent-soft),0_30px_70px_-30px_rgb(0_0_0/0.5)]'>
+            <Image
+              src='/images/sachin.jpg'
+              alt='Sachin Mhetre'
+              width={827}
+              height={762}
+              priority
+              sizes='(min-width: 1024px) 360px, 300px'
+              className='aspect-[4/5] w-full rounded-[999px_999px_24px_24px] object-cover object-top'
+            />
           </div>
+          <span
+            className='stagger absolute -left-3 bottom-10 inline-flex h-10 -rotate-6 items-center gap-2 whitespace-nowrap rounded-full border border-hairline bg-surface-1 px-4 text-body-sm text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.35)] motion-safe:animate-reveal md:-left-8'
+            style={{ '--i': 0, '--base': '900ms' } as CSSProperties}
+          >
+            <span aria-hidden>👋</span> Pune, India
+          </span>
         </div>
       </div>
     </section>
