@@ -7,6 +7,8 @@ import { revealCard, step as stepStyle } from '@/common/libs/motion';
 import { Project } from '@/common/types/projects';
 import RoutingMockup from '@/modules/home/components/RoutingMockup';
 
+import PosterVisual from './PosterVisual';
+
 // Visual shown on top of each selected-work card.
 const VISUAL_HEIGHT = 'h-56 md:h-64';
 
@@ -52,6 +54,15 @@ const WorkVisual = ({ project }: { project: Project }) => {
       </div>
     );
   }
+  if (slug === 'hope') {
+    return (
+      <PosterVisual
+        src='/images/projects/hope.webp'
+        alt='Project poster for Hope, a Raspberry Pi companion robot: a small wheeled robot with a smiling screen face, panels for face, voice and text emotion detection, key features, tech stack and system workflow.'
+        className={VISUAL_HEIGHT}
+      />
+    );
+  }
   const images: Record<string, { src: string; alt: string }> = {
     scribly: {
       src: '/images/projects/scribly.jpg',
@@ -81,12 +92,7 @@ const WorkVisual = ({ project }: { project: Project }) => {
     );
   }
   // No screenshot for these: a typographic panel built from the approved detail lines.
-  const steps =
-    slug === 'hope'
-      ? ['Face', 'Voice', 'Text']
-      : slug === 'rag-document-qa'
-      ? ['PDF', 'FAISS', 'Answer']
-      : null;
+  const steps = slug === 'rag-document-qa' ? ['PDF', 'FAISS', 'Answer'] : null;
   if (!steps) return null;
   return (
     <div

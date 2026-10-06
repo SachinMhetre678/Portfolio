@@ -17,3 +17,4 @@ Items that need Sachin, plus follow-ups from the redesign. Updated 2026-10-06.
 ## Later
 
 - [ ] Optimize `platesniper.gif` (5.5 MB) to video/WebP in Phase 3.
+- [ ] **Hope hardware photo:** the Hope card uses a concept/summary poster (`public/images/projects/hope.webp`, labelled "Project poster"; source PNG in `docs/source-images/`). Replace it or add a real photo of the Hope hardware.
