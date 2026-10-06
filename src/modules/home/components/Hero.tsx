@@ -1,13 +1,10 @@
 import { CSSProperties, PointerEvent, useRef } from 'react';
 
-import Image from '@/common/components/elements/Image';
+import { PillLink } from '@/common/components/elements/PillLink';
+import Portrait from '@/common/components/elements/Portrait';
+import { geistItalic } from '@/common/fonts';
 import cn from '@/common/libs/cn';
-
-import { geistItalic } from '../fonts';
-import { PillLink } from './Pill';
-
-const step = (i: number) => ({ '--i': i } as CSSProperties);
-const reveal = 'stagger motion-safe:animate-reveal';
+import { reveal, step } from '@/common/libs/motion';
 
 const Hero = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -95,31 +92,18 @@ const Hero = () => {
         <div
           className={cn(
             reveal,
-            'relative mx-auto w-full max-w-[300px] lg:max-w-[360px]'
+            'mx-auto w-full max-w-[300px] lg:max-w-[360px]'
           )}
           style={{ ...step(3), '--base': '120ms' } as CSSProperties}
         >
-          <div
-            aria-hidden
-            className='absolute -inset-6 -z-10 rounded-full bg-accent/20 blur-3xl'
-          />
-          <div className='rotate-3 overflow-hidden rounded-[999px_999px_32px_32px] border border-accent/40 bg-surface-1 p-2 shadow-[0_0_0_6px_var(--accent-soft),0_30px_70px_-30px_rgb(0_0_0/0.5)]'>
-            <Image
-              src='/images/sachin.jpg'
-              alt='Sachin Mhetre'
-              width={827}
-              height={762}
-              priority
-              sizes='(min-width: 1024px) 360px, 300px'
-              className='aspect-[4/5] w-full rounded-[999px_999px_24px_24px] object-cover object-top'
-            />
-          </div>
-          <span
-            className='stagger absolute -left-3 bottom-10 inline-flex h-10 -rotate-6 items-center gap-2 whitespace-nowrap rounded-full border border-hairline bg-surface-1 px-4 text-body-sm text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.35)] motion-safe:animate-reveal md:-left-8'
-            style={{ '--i': 0, '--base': '900ms' } as CSSProperties}
-          >
-            <span aria-hidden>👋</span> Pune, India
-          </span>
+          <Portrait priority sizes='(min-width: 1024px) 576px, 480px'>
+            <span
+              className='stagger absolute -left-3 bottom-10 inline-flex h-10 -rotate-6 items-center gap-2 whitespace-nowrap rounded-full border border-hairline bg-surface-1 px-4 text-body-sm text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.35)] motion-safe:animate-reveal md:-left-8'
+              style={{ '--i': 0, '--base': '900ms' } as CSSProperties}
+            >
+              <span aria-hidden>👋</span> Pune, India
+            </span>
+          </Portrait>
         </div>
       </div>
     </section>

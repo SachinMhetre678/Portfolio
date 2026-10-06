@@ -6,8 +6,8 @@ import { FEATURED_PROJECTS } from '@/common/constant/projects';
 import cn from '@/common/libs/cn';
 import { Project } from '@/common/types/projects';
 
-import { caveat } from '../fonts';
-import { PillLink } from './Pill';
+import { caveat } from '@/common/fonts';
+import { PillLink } from '@/common/components/elements/PillLink';
 import RoutingMockup from './RoutingMockup';
 
 const PROOF = [
