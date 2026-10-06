@@ -3,7 +3,7 @@
 Audit of the live site (https://sachinmhetre.vercel.app) and this repo before the redesign.
 The live site matches the repo exactly. The decisions in section 3 are **approved by Sachin** and are binding for later phases.
 
-**Next session:** read this file, then continue with **Phase 1** (see section 6 for the remaining phase plan).
+**Next session:** Phase 1 is drafted in `docs/DESIGN_SYSTEM.md` (pending approval of its section 9). After approval, continue with **Phase 2** (see section 6).
 
 ---
 
