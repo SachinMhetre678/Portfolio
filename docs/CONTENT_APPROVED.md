@@ -1,6 +1,6 @@
 # Site Content (Phase 2, approved 2026-10-06)
 
-Status: **APPROVED by Sachin (2026-10-06)**, including both proposed "My part" lines (Scribly, RAG). Frozen copy: `docs/CONTENT_APPROVED.md`.
+Status: **APPROVED by Sachin (2026-10-06)**, including both proposed "My part" lines (Scribly, RAG). This is the source of truth for Phase 3 copy.
 
 Sources: resume (AUDIT.md appendix A), audit decisions (AUDIT.md section 3), Sachin's Phase 2 answers (2026-10-06), and the public GitHub repos (READMEs, `requirements.txt` and git history, checked 2026-10-06). Nothing is invented. Open items are in `docs/TODO.md`.
 
