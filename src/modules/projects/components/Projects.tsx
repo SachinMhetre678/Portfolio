@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import EmptyState from '@/common/components/elements/EmptyState';
 import { ProjectsProps } from '@/common/types/projects';
 
-import ProjectCard from './ProjectCard';
+import ProjectCard from './LegacyProjectCard';
 
 interface ProjectsComponentProps {
   projects: ProjectsProps['projects'];

@@ -1,66 +1,110 @@
-import Link from 'next/link';
-import { AiFillPushpin as PinIcon } from 'react-icons/ai';
-import { HiOutlineArrowSmRight as ViewIcon } from 'react-icons/hi';
-
-import Card from '@/common/components/elements/Card';
 import Image from '@/common/components/elements/Image';
-import Tooltip from '@/common/components/elements/Tooltip';
-import { STACKS } from '@/common/constant/stacks';
-import { ProjectItemProps } from '@/common/types/projects';
+import { ChipList } from '@/common/components/elements/Chip';
+import TextLink from '@/common/components/elements/TextLink';
+import { Project } from '@/common/types/projects';
+
+interface ProjectCardProps {
+  project: Project;
+  variant?: 'compact' | 'full';
+  headingLevel?: 'h2' | 'h3';
+}
 
 const ProjectCard = ({
-  title,
-  description,
-  image,
-  stacks,
-  is_featured,
-  link_demo,
-  link_github,
-}: ProjectItemProps) => {
+  project,
+  variant = 'full',
+  headingLevel: Heading = 'h3',
+}: ProjectCardProps) => {
+  const {
+    slug,
+    title,
+    context,
+    oneLiner,
+    highlight,
+    team,
+    myPart,
+    details,
+    tags,
+    links,
+    note,
+    image,
+  } = project;
+  const isFull = variant === 'full';
+
   return (
-    <Link
-      target='_blank'
-      href={(link_github !== '#' ? link_github : link_demo) ?? ''}
+    <article
+      id={slug}
+      aria-labelledby={`${slug}-title`}
+      className='group rounded-card border border-hairline bg-surface-1 p-5 transition-colors duration-150 hover:border-hairline-strong hover:bg-surface-2 shadow-[0_1px_2px_rgb(22_23_26/0.04)] md:p-6 dark:shadow-none'
     >
-      <Card className='group relative border border-neutral-200 dark:border-neutral-900 lg:hover:scale-[102%] cursor-pointer'>
-        {is_featured && (
-          <div className='flex items-center gap-1 absolute top-0 right-0 bg-lime-300 text-emerald-950 text-[13px] font-medium py-1 px-2 rounded-bl-xl rounded-tr-xl z-[2]'>
-            <PinIcon size={15} />
-            <span>Featured</span>
-          </div>
+      {isFull && image && (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          sizes='(min-width: 768px) 720px, 100vw'
+          className='mb-5 h-auto w-full rounded-control border border-hairline'
+        />
+      )}
+
+      <div className='space-y-1'>
+        <Heading id={`${slug}-title`} className='min-w-0 break-words text-h3'>
+          {title}
+        </Heading>
+        {context && (
+          <p className='font-mono text-mono text-ink-subtle'>{context}</p>
         )}
-        <div className='relative'>
-          <Image
-            src={image}
-            width={400}
-            height={200}
-            alt={title}
-            className='rounded-t-xl h-48 object-cover object-left'
-          />
-          <div className='flex gap-1 absolute top-0 left-0 w-full h-full bg-black opacity-0 transition-opacity duration-300 flex justify-center items-center text-white group-hover:opacity-80 rounded-t-xl text-sm font-medium'>
-            <span>View Project</span>
-            <ViewIcon size={20} />
-          </div>
-        </div>
-        <div className='p-5 space-y-2'>
-          <div className='flex justify-between'>
-            <div className='text-lg font-sora cursor-pointer text-neutral-700 dark:text-neutral-300 lg:group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-all duration-300'>
-              {title}
+      </div>
+
+      <p className='mt-3 text-body-sm text-ink-muted'>{oneLiner}</p>
+
+      {highlight && (
+        <p className='mt-3 text-body-sm text-ink-muted'>
+          <span className='font-medium text-ink'>{highlight.label}:</span>{' '}
+          {highlight.text}
+        </p>
+      )}
+
+      {isFull && details && details.length > 0 && (
+        <ul className='mt-4 list-disc space-y-1.5 pl-5 text-body-sm text-ink-muted marker:text-ink-subtle'>
+          {details.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      )}
+
+      {isFull && (team || myPart) && (
+        <dl className='mt-4 space-y-2 text-body-sm text-ink-muted'>
+          {team && (
+            <div>
+              <dt className='inline font-medium text-ink'>Team: </dt>
+              <dd className='inline'>{team}</dd>
             </div>
-          </div>
-          <p className='text-neutral-700 dark:text-neutral-400 text-[15px] leading-relaxed'>
-            {description}
-          </p>
-          <div className='flex flex-wrap items-center gap-3 pt-2'>
-            {stacks?.map((stack: string, index: number) => (
-              <div key={index}>
-                <Tooltip title={stack}>{STACKS[stack]}</Tooltip>
-              </div>
-            ))}
-          </div>
+          )}
+          {myPart && (
+            <div>
+              <dt className='inline font-medium text-ink'>My part: </dt>
+              <dd className='inline'>{myPart}</dd>
+            </div>
+          )}
+        </dl>
+      )}
+
+      <div className='mt-5'>
+        <ChipList items={tags} chipClassName='group-hover:bg-surface-3' />
+      </div>
+
+      {(links.length > 0 || note) && (
+        <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-hairline pt-4 text-body-sm'>
+          {links.map(({ label, href }) => (
+            <TextLink key={href} href={href} srLabel={`: ${title}`}>
+              {label}
+            </TextLink>
+          ))}
+          {note && <p className='text-ink-subtle'>{note}</p>}
         </div>
-      </Card>
-    </Link>
+      )}
+    </article>
   );
 };
 
