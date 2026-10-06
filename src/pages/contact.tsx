@@ -5,20 +5,17 @@ import Container from '@/common/components/elements/Container';
 import PageHeading from '@/common/components/elements/PageHeading';
 import Contact from '@/modules/contact';
 
-const PAGE_TITLE = 'Contact';
-const PAGE_DESCRIPTION =
-  "Feel free to get in touch and let's have a discussion about how we can work together.";
-
-const ContactPage: NextPage = () => {
-  return (
-    <>
-      <NextSeo title={`${PAGE_TITLE} - Sachin Mhetre`} />
-      <Container data-aos='fade-up'>
-        <PageHeading title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
-        <Contact />
-      </Container>
-    </>
-  );
-};
+const ContactPage: NextPage = () => (
+  <>
+    <NextSeo title='Contact' />
+    <Container>
+      <PageHeading
+        title='Contact'
+        description='The fastest way to reach me is email.'
+      />
+      <Contact />
+    </Container>
+  </>
+);
 
 export default ContactPage;
