@@ -79,6 +79,7 @@ const Block = ({ name, icon, mono, plate }: Item) => {
   return (
     <li
       tabIndex={0}
+      data-mascot-avoid
       className='rack-block-wrap group relative flex w-20 flex-col items-center gap-2 rounded-control focus-visible:outline-offset-4'
     >
       <span className='rack-block' aria-hidden='true'>
@@ -144,18 +145,18 @@ const StackRack = () => (
         <p className='text-body-sm text-ink-subtle'>{HEADING.caption}</p>
       </div>
 
-      <div className='mt-10 grid items-end gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-start md:gap-x-3 md:gap-y-12'>
-        <div className='relative flex justify-center md:-mt-12 md:justify-end'>
+      <div className='mt-10 grid items-end gap-8 md:mt-16 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-x-3 md:gap-y-12'>
+        <div className='relative flex justify-center md:justify-end'>
           <span aria-hidden='true' className='rack-spotlight' />
           <span aria-hidden='true' className='rack-floor-glow' />
           <span aria-hidden='true' className='rack-contact-shadow' />
           <Image
             src={AVATAR.src}
             alt={AVATAR.alt}
-            width={640}
-            height={960}
-            sizes='(min-width: 768px) 380px, 150px'
-            className='rack-float relative h-[220px] w-auto md:h-[540px]'
+            width={1024}
+            height={1536}
+            sizes='(min-width: 768px) 500px, 190px'
+            className='rack-float relative h-[280px] w-auto md:h-[730px]'
           />
         </div>
 
@@ -178,7 +179,7 @@ const StackRack = () => (
                     {items.length > 3 && <i className='rack-led' />}
                   </span>
                 </div>
-                <ul className='mt-3 flex flex-wrap gap-x-3 gap-y-4'>
+                <ul className='mt-2 flex flex-wrap gap-x-3 gap-y-3'>
                   {items.map((item) => (
                     <Block key={item.name} {...item} />
                   ))}
