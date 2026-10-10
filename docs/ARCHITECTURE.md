@@ -16,12 +16,12 @@ Updated 2026-10-10. Next.js 13.5 (Pages Router), React 18, TypeScript, Tailwind 
 
 ## Folders and components
 
-- `src/modules/home/components/`: `Home.tsx` lists the sections in order: `Hero`, `ProofStrip`, `AboutBlock`, `SelectedWork`, `StackRack`, `Closing` (all except `Hero` and `StackRack` are in `Sections.tsx`). `RoutingMockup.tsx` is the fake dashboard used on the failure-management card.
+- `src/modules/home/components/`: `Home.tsx` lists the sections in order: `Hero` (with `HeroScene`), `ProofStrip`, `AboutBlock`, `SelectedWork`, `StackRack`, `Closing` (all except `Hero` and `StackRack` are in `Sections.tsx`). `RoutingMockup.tsx` is the fake dashboard used on the failure-management card.
 - `StackRack.tsx`: the "My stack" section. Heading, avatar and the `UNITS` array (rack groups and items) are constants at the top. Each item names an SVG in `public/icons/stack/`. Single-colour logos (`mono: true`) are drawn with a CSS mask on a light plate. Rack styles are the `.rack-*` classes in `globals.css`.
 - `src/modules/projects/components/`: `Projects.tsx` (page, filter, card order), `WorkCard.tsx` (card, and which visual each project gets), `PosterVisual.tsx` (cropped poster button plus a native `<dialog>` modal with Esc, focus handling and a Close button, captioned "Project poster"), `EarlierWorkList.tsx`.
 - `src/modules/about`, `src/modules/contact`: page components. Their data is in `src/common/constant/` (`about.ts`, `contact.tsx`).
 - `src/common/components/layouts/`: `index.tsx` (skip link, `PillNav`, `<main id="main">`, `Footer`, Vercel Analytics and Speed Insights), `PillNav.tsx` (floating nav on every page), `Footer.tsx`.
-- `src/common/components/elements/`: shared pieces such as `Portrait` (arch hero portrait), `PageHeader` (badge and two-tone headline), `PillLink`, `Chip`, `ThemeToggle`, `Image` (thin `next/image` wrapper), `Container`.
+- `src/common/components/elements/`: shared pieces such as `Portrait` (arch portrait, About only), `IconBlock` (glossy stack block, shared by the rack and the hero), `PageHeader` (badge and two-tone headline), `PillLink`, `Chip`, `ThemeToggle`, `Image` (thin `next/image` wrapper), `Container`.
 - `src/common/components/mascot/`: Strobi. `MascotLoader.tsx` loads `Mascot.tsx` with `next/dynamic` (no SSR) once the browser is idle. `strobiLines.ts` holds every line. `useBubble.ts` is the speech-bubble engine (cooldown, one at a time), `useStrobiVoice.ts` the triggers (hover, scroll, idle, easter eggs), `useStrobiAvatar.ts` the avatar (`@bible-strong/avatar-web`) and its animations, `useAvoidOverlap.ts` the phone overlap rules, `Bubble.tsx` the bubble and quick menu (Shh, Unmute), `storage.ts` the localStorage and sessionStorage keys. The avatar definition is `public/strobi.avatar.json`, fetched at runtime.
 - `src/common/libs/`: `cn.ts` (clsx + tailwind-merge), `motion.ts` (reveal helpers), `resume.ts` (checks for `public/resume.pdf` at build time).
 

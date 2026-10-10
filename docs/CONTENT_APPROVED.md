@@ -44,9 +44,9 @@ No employer or job title in the hero.
 
 - **Badge:** Pune, India · B.Tech CSE 2026
 - **Headline (h1):** **Hi, I'm Sachin.** (bold line) / *I build things that work.* (italic, muted line)
-- **Subline:** I like building test automation and the tools around it. I also make full-stack and AI projects, from hackathons and university.
+- **Subline:** I build full-stack apps and AI projects. My team won FOSS Hack 2025 with Scribly. (Changed 2026-10-10: no mention of testing or automation in the hero.)
 - **Buttons:** `View projects` → `/projects` · `Get in touch` → `/contact`
-- **Visual:** arch-framed portrait (`public/images/sachin-portrait.jpg`, alt: Sachin Mhetre) with one chip: 👋 Pune, India
+- **Visual:** 3D avatar scene (`public/images/sachin-3d-wave.webp`, alt: Cartoon illustration of Sachin waving hello) on a spotlight and floor glow, with three floating stack blocks (React, Next.js, Java) and one chip: 👋 Pune, India. The arch portrait now only appears on About.
 
 ### Proof strip
 

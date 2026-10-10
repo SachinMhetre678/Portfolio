@@ -45,13 +45,13 @@ const PillNav = () => {
           href='/'
           className='inline-flex h-10 items-center gap-2.5 rounded-full pl-1 pr-3 text-body-sm font-medium text-ink'
         >
-          <span className='relative h-9 w-9 overflow-hidden rounded-full'>
+          <span className='relative h-9 w-9 overflow-hidden rounded-full bg-surface-2'>
             <Image
-              src='/images/sachin-portrait.jpg'
+              src='/images/sachin-3d-wave.webp'
               alt=''
               fill
               sizes='72px'
-              className='origin-[50%_25%] scale-[1.8] object-cover object-[50%_15%]'
+              className='origin-top scale-[2.9] object-cover object-top'
             />
           </span>
           Sachin Mhetre
