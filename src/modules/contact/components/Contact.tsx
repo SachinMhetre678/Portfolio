@@ -97,7 +97,7 @@ const Contact = ({ hasResume }: ContactProps) => (
       subtitle='the fastest way is email.'
     />
 
-    <div className='grid gap-4 md:grid-cols-12'>
+    <div data-tour='contact' className='grid gap-4 md:grid-cols-12'>
       <EmailCard />
 
       <section

@@ -95,7 +95,7 @@ const About = ({ hasResume }: AboutProps) => (
       </ul>
     </section>
 
-    <section aria-labelledby='experience-title'>
+    <section aria-labelledby='experience-title' data-tour='experience'>
       <SectionTitle id='experience-title'>Experience</SectionTitle>
       <ol className='mt-8 ml-2 space-y-12 border-l border-hairline'>
         {EXPERIENCE.map(

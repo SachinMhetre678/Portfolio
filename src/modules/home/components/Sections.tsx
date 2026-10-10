@@ -21,7 +21,11 @@ const PROOF: { title: string; text: string; href?: string }[] = [
 ];
 
 export const ProofStrip = () => (
-  <section aria-label='Highlights' className='border-y border-hairline'>
+  <section
+    aria-label='Highlights'
+    data-tour='proof'
+    className='border-y border-hairline'
+  >
     <ul className='mx-auto grid max-w-7xl divide-y divide-hairline px-4 md:grid-cols-3 md:divide-x md:divide-y-0 md:px-8'>
       {PROOF.map(({ title, text, href }) => (
         <li key={title} className='py-6 md:px-8 md:py-8 md:first:pl-0'>
@@ -80,6 +84,7 @@ export const AboutBlock = () => (
 export const SelectedWork = () => (
   <section
     aria-labelledby='work-title'
+    data-tour='selected-work'
     className='mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28'
   >
     <div className='flex flex-wrap items-end justify-between gap-6'>

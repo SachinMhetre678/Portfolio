@@ -90,6 +90,7 @@ const Hero = () => {
         </div>
 
         <div
+          data-mascot-avoid
           className={cn(
             reveal,
             'mx-auto w-full max-w-[300px] lg:max-w-[360px]'
