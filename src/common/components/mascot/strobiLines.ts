@@ -43,6 +43,9 @@ interface Shape {
   unmuted: Group;
 }
 
+// The notification card on the Contact phone's home screen (shown as written, not spoken). The page imports it dynamically so the lines stay out of its bundle.
+export const PHONE_NOTIFICATION = 'New message: tap Mail and say hi.';
+
 export const LINES: Shape = {
   // Page arrival, one random line per visit. Home also mixes in `time`.
   arrival: {
@@ -166,6 +169,42 @@ export const LINES: Shape = {
       'You found me.',
       'Careful, I’m ticklish. Allegedly.',
       'Hi hi! Click me for the quick menu.',
+    ],
+    phone: [
+      'Nice phone. Say hi through any of these apps.',
+      'Tap an app. I’ll be nervously watching.',
+      ['I want my own app icon. Just saying.', 'shy'],
+      'Everything opens inside the phone. Go on, tap.',
+    ],
+    'app-mail': [
+      'Mail is the fastest way. No pressure though.',
+      'That red badge is a lie. Write anyway.',
+      ['Just say hi. Three words is plenty.', 'shy'],
+    ],
+    'app-calendar': [
+      'Thirty minutes on Google Meet. Very low pressure.',
+      'Booking a call? I’m nervous for you.',
+      'Calendly handles the awkward part. Nice.',
+    ],
+    'app-github': [
+      'Sachin’s code lives here. Go peek.',
+      'Stars are free, by the way.',
+      ['Where’s my own app icon, though?', 'suspicious'],
+    ],
+    'app-linkedin': [
+      'The professional door. Wear your best hello.',
+      'Connect politely. Sachin will be thrilled.',
+      'LinkedIn: where hellos wear ties.',
+    ],
+    'app-x': [
+      'Short and sweet, like my bubbles.',
+      'Say hi in 280 characters or fewer.',
+      'Perhaps a DM? I’m too shy.',
+    ],
+    'app-instagram': [
+      'Photos and hellos are both welcome.',
+      'Instagram! I’d make a cute profile picture.',
+      ['Double tap Sachin’s page. Metaphorically.', 'playful'],
     ],
     email: [
       'That’s the fastest way to reach Sachin.',

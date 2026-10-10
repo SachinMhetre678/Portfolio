@@ -1,7 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
 import {
-  PiArrowUpRight as ExternalIcon,
-  PiCalendarBlank as CalendarIcon,
   PiCheck as CheckIcon,
   PiCopySimple as CopyIcon,
   PiDownloadSimple as DownloadIcon,
@@ -9,15 +6,11 @@ import {
 } from 'react-icons/pi';
 
 import PageHeader from '@/common/components/elements/PageHeader';
-import { PillLink, pillClassName } from '@/common/components/elements/PillLink';
-import { CALENDLY_URL, CONTACT_LINKS } from '@/common/constant/contact';
+import { pillClassName } from '@/common/components/elements/PillLink';
 import cn from '@/common/libs/cn';
-import { MASCOT_CELEBRATE_EVENT } from '@/common/components/mascot/constants';
 import { revealCard, step } from '@/common/libs/motion';
-
-const [EMAIL, linkedin, ...rest] = CONTACT_LINKS;
-// Social pills in the order GitHub, LinkedIn, X, Instagram.
-const SOCIAL = [rest[0], linkedin, ...rest.slice(1)];
+import PhoneMockup from './PhoneMockup';
+import useCopyEmail, { EMAIL } from './useCopyEmail';
 
 const cardClassName = cn(
   revealCard,
@@ -25,21 +18,7 @@ const cardClassName = cn(
 );
 
 const EmailCard = () => {
-  const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle');
-  const timer = useRef<ReturnType<typeof setTimeout>>();
-  useEffect(() => () => clearTimeout(timer.current), []);
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL.value);
-      setState('copied');
-      window.dispatchEvent(new Event(MASCOT_CELEBRATE_EVENT));
-    } catch {
-      setState('failed');
-    }
-    clearTimeout(timer.current);
-    timer.current = setTimeout(() => setState('idle'), 2500);
-  };
+  const { state, copy } = useCopyEmail();
 
   return (
     <section
@@ -48,7 +27,7 @@ const EmailCard = () => {
       data-strobi='email'
       className={cn(
         cardClassName,
-        'border-accent/25 bg-accent-soft hover:border-accent/50 md:col-span-12'
+        'border-accent/25 bg-accent-soft hover:border-accent/50'
       )}
       style={step(0)}
     >
@@ -91,70 +70,21 @@ interface ContactProps {
 }
 
 const Contact = ({ hasResume }: ContactProps) => (
-  <>
-    <PageHeader
-      badge='Contact'
-      title='Let’s talk.'
-      subtitle='the fastest way is email.'
-    />
-
-    <div className='grid gap-4 md:grid-cols-12'>
+  <div className='grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-10 md:grid-cols-12 md:items-center'>
+    <div className='flex flex-col gap-10 md:col-span-7'>
+      <PageHeader
+        badge='Contact'
+        title='Let’s talk.'
+        subtitle='the fastest way is email.'
+      />
       <EmailCard />
-
-      <section
-        aria-labelledby='call-title'
-        className={cn(cardClassName, 'md:col-span-7')}
-        style={step(1)}
-      >
-        <CalendarIcon size={24} aria-hidden className='text-accent' />
-        <h2 id='call-title' className='mt-5 text-h2'>
-          Book a 30-minute call
-        </h2>
-        <p className='mt-2 text-body text-ink-muted'>
-          Google Meet, via Calendly.
-        </p>
-        <PillLink href={CALENDLY_URL} className='mt-8'>
-          Book a call
-        </PillLink>
-      </section>
-
-      <section
-        aria-labelledby='social-title'
-        className={cn(cardClassName, 'md:col-span-5')}
-        style={step(2)}
-      >
-        <h2 id='social-title' className='text-h2'>
-          Find me online
-        </h2>
-        <ul className='mt-5 flex flex-wrap gap-2'>
-          {SOCIAL.map(({ label, href, icon }) => (
-            <li key={label}>
-              <a
-                href={href}
-                target='_blank'
-                rel='noopener noreferrer'
-                className={pillClassName('secondary', 'h-11 px-4 text-body-sm')}
-              >
-                <span aria-hidden>{icon}</span>
-                {label}
-                <ExternalIcon
-                  size={14}
-                  aria-hidden
-                  className='text-ink-subtle'
-                />
-                <span className='sr-only'>(opens in new tab)</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       {/* Hidden until public/resume.pdf exists (docs/TODO.md). */}
       {hasResume && (
         <section
           aria-label='Resume'
-          className={cn(cardClassName, 'md:col-span-12')}
-          style={step(3)}
+          className={cn(cardClassName)}
+          style={step(2)}
         >
           <a href='/resume.pdf' download className={pillClassName('secondary')}>
             <DownloadIcon size={18} aria-hidden />
@@ -163,7 +93,11 @@ const Contact = ({ hasResume }: ContactProps) => (
         </section>
       )}
     </div>
-  </>
+
+    <div className='md:col-span-5' style={step(1)}>
+      <PhoneMockup />
+    </div>
+  </div>
 );
 
 export default Contact;
