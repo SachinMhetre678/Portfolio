@@ -200,9 +200,9 @@ export const LINES: Shape = {
       'Personal finance, with a 3NF MySQL schema. Fancy.',
       'Swing dashboard, XChart charts, savings goals. Old school, still cute.',
     ],
-    credit: [
-      'Secret spot! My makers get a thank you here.',
-      'You read the footer. Respect. Thanks, Avatar Lab!',
+    footer: [
+      'Secret spot! Nobody hovers the footer. Except you.',
+      'You read the footer. Respect. Also, thanks to my makers!',
     ],
   },
   // Hovering Strobi for a while.
