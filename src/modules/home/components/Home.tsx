@@ -4,8 +4,8 @@ import {
   Closing,
   ProofStrip,
   SelectedWork,
-  SkillsStrip,
 } from './Sections';
+import StackRack from './StackRack';
 
 const Home = () => (
   <>
@@ -13,7 +13,7 @@ const Home = () => (
     <ProofStrip />
     <AboutBlock />
     <SelectedWork />
-    <SkillsStrip />
+    <StackRack />
     <Closing />
   </>
 );

@@ -161,8 +161,8 @@ const Mascot = () => {
     <div
       className='pointer-events-none fixed z-40'
       style={{
-        right: 'max(1rem, env(safe-area-inset-right))',
-        bottom: 'max(1rem, env(safe-area-inset-bottom))',
+        right: 'calc(1rem + env(safe-area-inset-right))',
+        bottom: 'calc(1rem + env(safe-area-inset-bottom))',
       }}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}

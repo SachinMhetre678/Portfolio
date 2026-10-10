@@ -1,6 +1,6 @@
 # Design System (Phase 1, 2026-10-06)
 
-Status: **approved by Sachin (2026-10-06).** Phase 3 builds against this file. Section 9 records the approved decisions.
+Status: **approved by Sachin (2026-10-06).** Tokens, typography and the one-accent rule still apply. The layout, shape and motion rules changed during the redesign: section 11 (2026-10-10) describes the final direction, and items it replaces are marked **Superseded** below.
 
 ---
 
@@ -76,7 +76,7 @@ Implemented as CSS variables on `:root` (light) and `.dark` (dark), and exposed 
 **Rules:**
 - **One accent** (Taste 4.2 Color Consistency Lock). No brand colors on social buttons, no lime "Featured" badge, no blue filter pills, no teal Calendly card, no rainbow bio keywords. Brand icons are drawn in `--ink-muted`.
 - Semantic success/error colors aren't needed (there are no forms). If one is added later, it must go through this file first.
-- No gradients and no glows. `<meta name="theme-color">` = `--canvas` for each theme. `color-scheme: dark` on `<html>` in dark mode (Vercel guideline).
+- No gradients and no glows. **Superseded in part:** the hero cursor glow, portrait glow, rack spotlight and floor glow use the accent at low opacity (section 11). `<meta name="theme-color">` = `--canvas` for each theme. `color-scheme: dark` on `<html>` in dark mode (Vercel guideline).
 
 ---
 
@@ -123,6 +123,7 @@ Fonts: **Geist** (sans) and **Geist Mono**, both self-hosted through the `geist`
 **Layout:**
 - Sidebar 260px, fixed, at `lg` (1024px) and up. Main column `max-w-3xl` (768px). The whole shell is centered in `max-w-6xl`.
 - Below `lg`: sticky top bar, 56px tall (Linear `top-nav`; Taste nav cap 80px), plus a slide-in drawer.
+- **Superseded:** the sidebar, top bar and drawer are gone. Every page uses the floating pill nav (section 11). Main content now spans up to `max-w-7xl`.
 - Grids collapse to one column below `md` (768px), stated in each component (Taste 4.7).
 - `min-h-[100dvh]`, never `h-screen` (Taste 3.E).
 
@@ -132,9 +133,9 @@ Fonts: **Geist** (sans) and **Geist Mono**, both self-hosted through the `geist`
 | Chips, badges, inline code | 6px |
 | Buttons, nav items, theme toggle | 8px |
 | Cards, timeline items, drawer | 12px |
-| Avatar | 12px rounded square (not a circle, per the redesign skill) |
+| Avatar | 12px rounded square (not a circle, per the redesign skill). **Superseded:** the nav avatar is a circle and the hero portrait is an arch. |
 
-No pill shapes anywhere.
+**Superseded:** pills are now used on purpose (nav, buttons, badges, filter links), cards use 24px radius and the closing card 32px. See section 11.
 
 **Elevation:** no drop shadows in dark mode. Depth = surface ladder + hairline (Linear). In light mode, cards may use at most `0 1px 2px rgb(22 23 26 / 0.04)`. Hover = step up one surface level + `--hairline-strong`.
 
@@ -148,6 +149,7 @@ No pill shapes anywhere.
 - Animate only `transform` and `opacity` (plus color/border transitions). List transition properties explicitly, never `transition: all` (Vercel anti-pattern; Taste's dial text suggests `all`, so the Vercel rule wins).
 - Press: `active:scale-[0.98]` on buttons and cards (Taste 4.5).
 - `prefers-reduced-motion: reduce`: no transforms, color transitions only, the drawer appears instantly. The wave emoji plays once and doesn't play at all under reduced motion. The 404 glitch becomes static.
+- **Partly superseded:** entrance reveals (700ms, staggered) and the infinite LED pulse and avatar float were added later. See section 11.
 - **Removed:** AOS (both AOS and framer-motion are loaded today), the infinite skill marquee, the pulsing status dot, the floating CTA card. framer-motion stays only for the drawer if CSS isn't enough. Otherwise it goes too.
 
 ---
@@ -160,9 +162,9 @@ No pill shapes anywhere.
 | **Button / secondary** | `--surface-1` background, 1px `--hairline`, `--ink` text. Hover: surface-2 + hairline-strong. |
 | **Text link** | `--accent`, underline on hover, offset 3px. External links get an icon (`aria-hidden`) and "opens in new tab" in screen-reader text. |
 | **Focus ring** | `focus-visible:outline-2 outline-offset-2 outline-[--accent]` on every interactive element. Never `outline-none` without a replacement. |
-| **Sidebar** | Avatar (64px, rounded square, `priority`), name (h3 style, not an h1), status line "Associate QA Automation Engineer @ Vimo" in `--ink-subtle`, nav, theme toggle, footer. No verified tick, no handle, no pulsing dot. |
-| **Nav item** | 14px, `--ink-subtle`. Hover `--ink` + surface-2. Active page: `--ink`, `--accent-soft` background, `aria-current="page"`. |
-| **Mobile top bar + drawer** | 56px bar: name + menu `<button aria-label="Open menu" aria-expanded>`. The drawer has the same content as the sidebar, traps focus, closes on Esc, uses `overscroll-behavior: contain`, and returns focus to the button. |
+| **Sidebar** (superseded by the pill nav) | Avatar (64px, rounded square, `priority`), name (h3 style, not an h1), status line "Associate QA Automation Engineer @ Vimo" in `--ink-subtle`, nav, theme toggle, footer. No verified tick, no handle, no pulsing dot. |
+| **Nav item** (now pill-shaped) | 14px, `--ink-subtle`. Hover `--ink` + surface-2. Active page: `--ink`, `--accent-soft` background, `aria-current="page"`. |
+| **Mobile top bar + drawer** (superseded: the pill nav opens a small menu panel) | 56px bar: name + menu `<button aria-label="Open menu" aria-expanded>`. The drawer has the same content as the sidebar, traps focus, closes on Esc, uses `overscroll-behavior: contain`, and returns focus to the button. |
 | **Theme toggle** | `<button>` with an `aria-label` that names the next state, and a Phosphor sun/moon icon. Keeps the switch function (audit decision 3). Sits in the sidebar footer. |
 | **Project card** | Surface-1, hairline, 12px, 24px padding. Contents: title (h3), one-liner, impact line (only real numbers from the resume), mono tags, links row (GitHub / Live) as real `<a>` elements with accessible names. Hover lifts one surface step. The whole card isn't one big link: links are explicit, so each has a name. The Vimo card is text only. |
 | **"Earlier work" list** | Compact rows, not cards: title, one-liner, tags, links. Grouped under one heading (Taste 4.9: long lists get a different component). |
@@ -226,3 +228,36 @@ Fetched `vercel-labs/agent-skills/skills/web-design-guidelines/SKILL.md`. It poi
 2. **Font:** add the `geist` package (v1.7, peer `next >=13.2`), self-hosted via `next/font`. Replaces Jakarta, Sora and Fira Code. Measure the font payload in Phase 4.
 3. **Animation:** remove AOS. Keep framer-motion only if the mobile drawer needs it; otherwise remove it in Phase 3.
 4. **Theme:** dark by default, with a manual toggle.
+
+---
+
+## 10. Stack icons (Home "My stack" rack)
+
+SVGs are copied into `public/icons/stack/` (no runtime dependency). Logos remain trademarks of their owners.
+
+- **devicon** (MIT, https://github.com/devicons/devicon, `-original` variants, nextjs `-plain`): java, python, javascript, typescript, cplusplus, spring, nodejs, react, svelte, tailwindcss, mongodb, docker, git, postman, postgresql, githubactions.
+- **simple-icons** (CC0, https://github.com/simple-icons/simple-icons): express, mysql, jenkins, aws (`amazonaws`). Together with `nextjs` these are single-colour, so `StackRack.tsx` draws them with a CSS mask in a fixed dark colour (`#181816`) on a light plate (`.rack-plate`), which reads in both themes. Dark multicolour logos (GitHub Actions) use the same plate.
+- Rack styling: `.rack-*` classes at the end of `globals.css`, token-based only. Block lift is off under `prefers-reduced-motion: reduce`, and the LED glow and avatar float only run under `no-preference`.
+- Avatar: `public/images/sachin-3d-pointing.webp`, generated from the original PNG. The 1.5 MB original is tracked in `docs/source-images/sachin-3d-pointing.png`, and a second copy is tracked at `public/sachin-3d-pointing.png` (see `docs/TODO.md`).
+
+---
+
+## 11. Final direction (2026-10-10)
+
+What the built site does, where it differs from sections 2 to 7.
+
+- **Floating pill nav.** One fixed bar on every page: `top-4`, 56px tall, `max-w-5xl`, fully rounded, hairline border, `surface-1` at 80% with a backdrop blur. Round portrait + name on the left, page links in the middle (active page on `surface-2`), theme toggle and an accent `Get in touch` pill on the right. Below `md` the links move into a rounded panel under the bar, opened by a labelled menu button and closed by Esc or a route change.
+- **Two-tone headlines.** Hero and page headers use a bold `--ink` first line and an italic `--ink-subtle` second line (Geist Italic, loaded with `next/font/local`). A pill badge sits above the headline. Section headings stay plain.
+- **Shape.** Pills for nav, buttons, badges and filters. Cards 24px, the closing card 32px, hero portrait in an arch frame with an accent border and a soft accent glow.
+- **Cards.** `surface-1` with a hairline border, a visual on top (poster, mock dashboard or screenshot), then copy. Hover lifts 4px and strengthens the border. The Scribly card is tinted with `--accent-soft`.
+- **Rack block style.** The "My stack" section is a cabinet (`.rack-cabinet`) of labelled units (`.rack-unit`), each with a mono label and 2 or 3 LED dots. Blocks are rounded squares with a gloss gradient, a bright top lip and a solid bottom edge, tilted 8 degrees. Gloss and shade swap between themes through `--gloss` and `--shade`. Hover or keyboard focus lifts the block and shows a name tooltip. Each unit is a labelled group and each block has screen-reader text.
+- **Avatar and spotlight.** The 3D avatar stands beside the rack on an accent radial spotlight (`.rack-spotlight`), a floor glow and a contact shadow, and floats 6px over 6s.
+- **Light theme.** Warm paper tones scoped to `.home-shell` (canvas `#f4f2ed`), which wraps every page. `theme-color` uses the same values. The accent is unchanged.
+- **Motion rules.**
+  - Entrance: `reveal` (700ms, 18px rise, staggered 90ms per step), only under `motion-safe`.
+  - Hover: card lift 300ms, poster zoom 500ms, block lift 200ms.
+  - Ambient: hero cursor glow (mouse pointers only), LED pulse (3.6s) and avatar float. These loop, which relaxes the original "no infinite loops" rule.
+  - Under `prefers-reduced-motion: reduce`, `globals.css` disables all CSS animation and the block lift is removed. The mascot only plays a still expression.
+  - Animate `transform` and `opacity` only, and list transition properties explicitly.
+- **Icons.** Phosphor through `react-icons/pi` in the UI. Stack logos are SVG files (section 10).
+- **Still applies:** one accent, tokens in section 3, Geist and Geist Mono, sentence case, no em dashes in copy, focus rings on every control, skip link, z-index scale.
