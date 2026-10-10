@@ -167,6 +167,41 @@ export const LINES: Shape = {
       'Careful, I’m ticklish. Allegedly.',
       'Hi hi! Click me for the quick menu.',
     ],
+    phone: [
+      'Nice phone. Say hi through any of these apps.',
+      'Tap an app. I’ll be nervously watching.',
+      ['I want my own app icon. Just saying.', 'shy'],
+    ],
+    'app-mail': [
+      'Mail is the fastest way. No pressure though.',
+      'That red badge is a lie. Write anyway.',
+      ['Just say hi. Three words is plenty.', 'shy'],
+    ],
+    'app-calendar': [
+      'Thirty minutes on Google Meet. Very low pressure.',
+      'Booking a call? I’m nervous for you.',
+      'Calendly handles the awkward part. Nice.',
+    ],
+    'app-github': [
+      'Sachin’s code lives here. Go peek.',
+      'Stars are free, by the way.',
+      ['Where’s my own app icon, though?', 'suspicious'],
+    ],
+    'app-linkedin': [
+      'The professional door. Wear your best hello.',
+      'Connect politely. Sachin will be thrilled.',
+      'LinkedIn: where hellos wear ties.',
+    ],
+    'app-x': [
+      'Short and sweet, like my bubbles.',
+      'Say hi in 280 characters or fewer.',
+      'Perhaps a DM? I’m too shy.',
+    ],
+    'app-instagram': [
+      'Photos and hellos are both welcome.',
+      'Instagram! I’d make a cute profile picture.',
+      ['Double tap Sachin’s page. Metaphorically.', 'playful'],
+    ],
     email: [
       'That’s the fastest way to reach Sachin.',
       'One click copies it. I’ll cheer, obviously.',

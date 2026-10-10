@@ -271,7 +271,9 @@ Categories: All · Automation · Full stack · AI/ML · Data. The selected categ
 ## 6. Contact
 
 **Page title:** Contact
-**Page header (2026-10-06):** badge `Contact`, headline **Let's talk.** / *the fastest way is email.* Email is a large copy-to-clipboard card (`Copy email`, `Send email`). Social pills: GitHub, LinkedIn, X, Instagram, under the label `Find me online`. The resume card appears only once `public/resume.pdf` exists (TODO).
+**Page header (2026-10-06):** badge `Contact`, headline **Let's talk.** / *the fastest way is email.* Email is a large copy-to-clipboard card (`Copy email`, `Send email`). The resume card appears only once `public/resume.pdf` exists (TODO).
+
+**Phone (2026-10-10, replaces the "Find me online" pills and the Book a call card):** on desktop a smartphone mockup (region label `Contact phone`) shows a home screen with apps Mail, Calendar, GitHub, LinkedIn, X, Instagram and a dock with Mail and Calendar. Opening an app shows: Mail: the email with `Copy` and `Send`; Calendar: **Book a 30-minute call**, Google Meet, via Calendly., button `Book a call`; GitHub, LinkedIn, X, Instagram: the label, the handle below and an `Open` button. `Back` or Esc returns home. Under 768px there is no phone: a `Find me online` grid of the same six tiles, each linking straight out. The red 1 on Mail is decoration only.
 
 | Label | Value |
 |---|---|
