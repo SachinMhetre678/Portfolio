@@ -10,7 +10,8 @@ const AVATAR = {
 interface Item {
   name: string;
   icon: string; // file name in public/icons/stack
-  mono?: boolean; // single-colour logo, drawn in the ink colour so it works in both themes
+  mono?: boolean; // single-colour logo, drawn dark on a light plate so it reads in both themes
+  plate?: boolean; // dark-ish colour logo that needs the light plate too
 }
 interface Unit {
   id: string; // becomes data-strobi="rack-<id>"
@@ -65,40 +66,57 @@ const UNITS: Unit[] = [
       { name: 'AWS', icon: 'aws', mono: true },
       { name: 'Docker', icon: 'docker' },
       { name: 'Git', icon: 'git' },
-      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'GitHub Actions', icon: 'githubactions', plate: true },
       { name: 'Jenkins', icon: 'jenkins', mono: true },
       { name: 'Postman', icon: 'postman' },
     ],
   },
 ];
 
-const Block = ({ name, icon, mono }: Item) => {
+const Block = ({ name, icon, mono, plate }: Item) => {
   const src = `/icons/stack/${icon}.svg`;
+  const onPlate = mono || plate;
   return (
     <li
       tabIndex={0}
-      className='rack-block-wrap group relative rounded-control focus-visible:outline-offset-4'
+      className='rack-block-wrap group relative flex w-20 flex-col items-center gap-2 rounded-control focus-visible:outline-offset-4'
     >
       <span className='rack-block' aria-hidden='true'>
-        {mono ? (
-          <span
-            className='block h-7 w-7 bg-ink'
-            style={{
-              WebkitMaskImage: `url(${src})`,
-              maskImage: `url(${src})`,
-              WebkitMaskSize: 'contain',
-              maskSize: 'contain',
-              WebkitMaskRepeat: 'no-repeat',
-              maskRepeat: 'no-repeat',
-              WebkitMaskPosition: 'center',
-              maskPosition: 'center',
-            }}
-          />
-        ) : (
-          <Image src={src} alt='' width={28} height={28} className='h-7 w-7' />
-        )}
+        <span className={onPlate ? 'rack-plate' : 'contents'}>
+          {mono ? (
+            <span
+              className='block h-6 w-6 bg-[#181816] md:h-7 md:w-7'
+              style={{
+                WebkitMaskImage: `url(${src})`,
+                maskImage: `url(${src})`,
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+              }}
+            />
+          ) : (
+            <Image
+              src={src}
+              alt=''
+              width={32}
+              height={32}
+              className={
+                onPlate ? 'h-6 w-6 md:h-7 md:w-7' : 'h-7 w-7 md:h-8 md:w-8'
+              }
+            />
+          )}
+        </span>
       </span>
       <span className='sr-only'>{name}</span>
+      <span
+        aria-hidden='true'
+        className='text-center text-xs leading-tight text-ink-muted'
+      >
+        {name}
+      </span>
       <span
         aria-hidden='true'
         className='pointer-events-none absolute -top-9 left-1/2 z-10 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-chip border border-hairline-strong bg-surface-1 px-2 py-1 font-mono text-mono text-ink opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100'
@@ -117,14 +135,18 @@ const StackRack = () => (
   >
     <div className='mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-24'>
       <div className='flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1'>
-        <h2 id='skills-title' className='text-h1-mobile md:text-h1'>
+        <h2
+          id='skills-title'
+          className='scroll-mt-28 text-h1-mobile md:text-h1'
+        >
           {HEADING.title}
         </h2>
         <p className='text-body-sm text-ink-subtle'>{HEADING.caption}</p>
       </div>
 
-      <div className='mt-10 grid items-end gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-12'>
-        <div className='relative flex justify-center'>
+      <div className='mt-10 grid items-end gap-8 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-start md:gap-x-3 md:gap-y-12'>
+        <div className='relative flex justify-center md:-mt-12 md:justify-end'>
+          <span aria-hidden='true' className='rack-spotlight' />
           <span aria-hidden='true' className='rack-floor-glow' />
           <span aria-hidden='true' className='rack-contact-shadow' />
           <Image
@@ -132,8 +154,8 @@ const StackRack = () => (
             alt={AVATAR.alt}
             width={640}
             height={960}
-            sizes='(min-width: 768px) 360px, 150px'
-            className='rack-float relative h-[220px] w-auto md:h-[520px]'
+            sizes='(min-width: 768px) 380px, 150px'
+            className='rack-float relative h-[220px] w-auto md:h-[540px]'
           />
         </div>
 
@@ -156,7 +178,7 @@ const StackRack = () => (
                     {items.length > 3 && <i className='rack-led' />}
                   </span>
                 </div>
-                <ul className='mt-3 flex flex-wrap gap-3'>
+                <ul className='mt-3 flex flex-wrap gap-x-3 gap-y-4'>
                   {items.map((item) => (
                     <Block key={item.name} {...item} />
                   ))}
