@@ -21,7 +21,12 @@ Updated 2026-10-10. Open items first, then what is done, then notes on Strobi.
 - [ ] **LinkedIn vanity URL:** keeping `/in/sachin-mhetre-382039233/` for now.
 - [ ] **`docs/CONTENT.md`:** an older copy of the approved copy, still uses "QA" wording. `docs/CONTENT_APPROVED.md` is the one to edit. Decide whether to delete the old file.
 
+- [ ] **Testing/QA/automation copy still on the site (decide):** About intro and work paragraph (`about.ts`), Vimo role, bullets and the "Automation & testing" skills group, Home AboutBlock and Closing (`Sections.tsx`), Automation project category and the failure-management card (`projects.ts`), SEO title and description (`site.ts`), Contact-adjacent Closing line, Strobi lines ("Sachin automates tests for a living", "Questions about test automation..."), README and docs. The hero no longer mentions it.
+- [ ] **Stack avatar:** `design-source/sachin-3d-pointing-v2.png` did not exist, so the stack section still uses the current `sachin-3d-pointing.webp`.
+
 ## Done
+
+- Hero: 3D waving avatar scene (spotlight, floor glow, 3 floating blocks, desktop mouse parallax) replaces the arch photo; nav avatar is a crop of the same image (2026-10-10)
 
 - Audit, design references, content and the redesign (cleanup, tokens, layout, all four pages)
 - Floating pill nav replaces the sidebar

@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import IconBlock from '@/common/components/elements/IconBlock';
+
 // Edit the copy and the stack here. Icons live in public/icons/stack (sources: docs/DESIGN_SYSTEM.md).
 const HEADING = { title: 'My stack', caption: 'Hover or tap a block' };
 const AVATAR = {
@@ -74,43 +76,13 @@ const UNITS: Unit[] = [
 ];
 
 const Block = ({ name, icon, mono, plate }: Item) => {
-  const src = `/icons/stack/${icon}.svg`;
-  const onPlate = mono || plate;
   return (
     <li
       tabIndex={0}
       data-mascot-avoid
       className='rack-block-wrap group relative flex w-20 flex-col items-center gap-2 rounded-control focus-visible:outline-offset-4'
     >
-      <span className='rack-block' aria-hidden='true'>
-        <span className={onPlate ? 'rack-plate' : 'contents'}>
-          {mono ? (
-            <span
-              className='block h-6 w-6 bg-[#181816] md:h-7 md:w-7'
-              style={{
-                WebkitMaskImage: `url(${src})`,
-                maskImage: `url(${src})`,
-                WebkitMaskSize: 'contain',
-                maskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                maskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskPosition: 'center',
-              }}
-            />
-          ) : (
-            <Image
-              src={src}
-              alt=''
-              width={32}
-              height={32}
-              className={
-                onPlate ? 'h-6 w-6 md:h-7 md:w-7' : 'h-7 w-7 md:h-8 md:w-8'
-              }
-            />
-          )}
-        </span>
-      </span>
+      <IconBlock icon={icon} mono={mono} plate={plate} />
       <span className='sr-only'>{name}</span>
       <span
         aria-hidden='true'

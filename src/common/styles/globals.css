@@ -254,3 +254,62 @@ html:not(.dark) .home-shell {
     transform: translateY(-6px);
   }
 }
+
+/* Home hero avatar scene. Parallax and float are transform-only and desktop-only (see HeroScene.tsx). */
+.hero-spotlight {
+  @apply pointer-events-none absolute inset-x-[-10%] bottom-[6%] top-0;
+  background: radial-gradient(
+    ellipse 52% 50% at 50% 46%,
+    rgb(var(--accent) / 0.3),
+    transparent 72%
+  );
+}
+/* Light theme: a softer, wider spotlight so the dark hoodie doesn't look pasted on. */
+html:not(.dark) .hero-spotlight {
+  background: radial-gradient(
+    ellipse 62% 56% at 50% 46%,
+    rgb(var(--accent) / 0.13),
+    transparent 75%
+  );
+}
+
+.hero-floor-glow {
+  @apply pointer-events-none absolute bottom-0 left-1/2 h-14 w-[78%] -translate-x-1/2 rounded-full blur-xl;
+  background: rgb(var(--accent) / 0.45);
+}
+html:not(.dark) .hero-floor-glow {
+  background: rgb(var(--accent) / 0.28);
+}
+
+.hero-contact-shadow {
+  @apply pointer-events-none absolute bottom-1.5 left-1/2 h-3 w-[48%] -translate-x-1/2 rounded-full blur-[6px];
+  background: rgb(var(--shade) / 0.5);
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-parallax {
+    transform: translate3d(
+      calc(var(--px, 0) * var(--d) * 1px),
+      calc(var(--py, 0) * var(--d) * 1px),
+      0
+    );
+    transition: transform 240ms ease-out;
+    will-change: transform;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .hero-float {
+    animation: hero-float 5s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--amp, 8px) * -1));
+  }
+}

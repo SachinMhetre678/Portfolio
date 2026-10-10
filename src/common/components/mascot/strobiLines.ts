@@ -225,6 +225,11 @@ export const LINES: Shape = {
       'Personal finance, with a 3NF MySQL schema. Fancy.',
       'Swing dashboard, XChart charts, savings goals. Old school, still cute.',
     ],
+    'hero-avatar': [
+      ['Sachin got a 3D avatar. I’m still a flat ball.', 'suspicious'],
+      'Look at that depth. I only have eyes.',
+      'Fine, he waves nicely. I can’t even wave.',
+    ],
     footer: [
       'Secret spot! Nobody hovers the footer. Except you.',
       'You read the footer. Respect. Also, thanks to my makers!',

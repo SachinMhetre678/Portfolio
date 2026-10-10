@@ -10,7 +10,7 @@ Personal portfolio of Sachin Mhetre, an automation engineer from Pune, India who
 
 - Dark-first design with a light theme toggle, a single emerald accent and a floating pill navigation
 - Home, About, Projects and Contact pages, written in first person
-- Home: a two-tone hero with an arch portrait, a proof strip, selected work cards, and a "My stack" section with a 3D-style server rack of icon blocks and a 3D avatar beside it
+- Home: a two-tone hero with a 3D waving avatar scene, a proof strip, selected work cards, and a "My stack" section with a 3D-style server rack of icon blocks and a 3D avatar beside it
 - Selected work cards with visuals: poster images (Scribly, Hope, RAG Document Q&A) that open in an accessible modal, and a mock dashboard for the failure-management system
 - **Strobi**, a small animated mascot with page-aware, scripted speech bubbles (no AI calls, no backend)
 - Respects `prefers-reduced-motion`, keyboard navigable, visible focus states

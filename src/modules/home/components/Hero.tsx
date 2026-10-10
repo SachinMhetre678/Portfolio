@@ -1,10 +1,11 @@
 import { CSSProperties, PointerEvent, useRef } from 'react';
 
 import { PillLink } from '@/common/components/elements/PillLink';
-import Portrait from '@/common/components/elements/Portrait';
 import { geistItalic } from '@/common/fonts';
 import cn from '@/common/libs/cn';
 import { reveal, step } from '@/common/libs/motion';
+
+import HeroScene from './HeroScene';
 
 const Hero = () => {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -74,8 +75,8 @@ const Hero = () => {
             )}
             style={step(3)}
           >
-            I like building test automation and the tools around it. I also make
-            full-stack and AI projects, from hackathons and university.
+            I build full-stack apps and AI projects. My team won FOSS Hack 2025
+            with Scribly.
           </p>
 
           <div
@@ -90,21 +91,10 @@ const Hero = () => {
         </div>
 
         <div
-          data-mascot-avoid
-          className={cn(
-            reveal,
-            'mx-auto w-full max-w-[300px] lg:max-w-[360px]'
-          )}
+          className={cn(reveal, 'w-full')}
           style={{ ...step(3), '--base': '120ms' } as CSSProperties}
         >
-          <Portrait priority sizes='(min-width: 1024px) 576px, 480px'>
-            <span
-              className='stagger absolute -left-3 bottom-10 inline-flex h-10 -rotate-6 items-center gap-2 whitespace-nowrap rounded-full border border-hairline bg-surface-1 px-4 text-body-sm text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.35)] motion-safe:animate-reveal md:-left-8'
-              style={{ '--i': 0, '--base': '900ms' } as CSSProperties}
-            >
-              <span aria-hidden>👋</span> Pune, India
-            </span>
-          </Portrait>
+          <HeroScene />
         </div>
       </div>
     </section>
