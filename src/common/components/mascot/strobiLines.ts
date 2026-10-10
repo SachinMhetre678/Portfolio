@@ -135,6 +135,31 @@ export const LINES: Shape = {
 
   // Hover, focus or tap, by data-strobi key.
   hover: {
+    'rack-languages': [
+      ['Languages! My favourite subject, after myself.', 'happy'],
+      'Java first, naturally.',
+      'Polyglot energy. I only speak bubble.',
+    ],
+    'rack-backend': [
+      'Spring Boot, Node, Express. The engine room.',
+      'Backends! Where the quiet magic lives.',
+      ['Servers hum, I approve.', 'happy'],
+    ],
+    'rack-frontend': [
+      ['React, Next.js, SvelteKit. The pretty things live here.', 'happy'],
+      'Frontend! My home turf, bubbles and all.',
+      'Tailwind classes everywhere. Very tidy.',
+    ],
+    'rack-data': [
+      'Data rack! Postgres, MySQL, Mongo, all tidy.',
+      'Rows, documents, queries. I just watch.',
+      'Databases never forget. Unlike me.',
+    ],
+    'rack-cloud': [
+      ['AWS, Docker, Git and friends. Very shiny.', 'excited'],
+      'Cloud and tools. The glue holds everything.',
+      'Jenkins is in there too. Fancy butler.',
+    ],
     self: [
       ['Hey there!', 'happy'],
       'Boop received.',
@@ -224,8 +249,8 @@ export const LINES: Shape = {
       'Pick a card. I’ll act surprised.',
     ],
     'home-skills': [
-      'Tools Sachin uses. Java first, naturally.',
-      'Skills strip! Playwright, Cucumber, Jenkins and friends.',
+      'Sachin’s stack, racked up and glowing.',
+      'A tidy rack! Hover a block, I dare you.',
     ],
     closing: [
       'Last stop! Get in touch, I’ll hold the door.',

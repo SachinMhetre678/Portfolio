@@ -70,9 +70,19 @@ Heading: Selected work · link pill `View projects`. Cards use the approved proj
 3. Hope: one-liner, GitHub + Live
 4. Hotel Management System: one-liner, GitHub
 
-### Skills strip
+### My stack (rack)
 
-Heading: Tools I use. The 7 skill groups from section 4, as plain comma-separated lines.
+Heading: My stack · caption: Hover or tap a block. A server-rack of icon blocks (5 units) with a 3D cartoon avatar of Sachin pointing at it (`public/images/sachin-3d-pointing.webp`, alt: Cartoon illustration of Sachin pointing at his tech stack). Copy and items live in one constant at the top of `StackRack.tsx`. No testing tools are shown here on purpose (they stay on About).
+
+| Unit | Blocks |
+|---|---|
+| Languages | Java · Python · JavaScript · TypeScript · C/C++ |
+| Backend | Spring Boot · Node.js · Express |
+| Frontend | React · Next.js · SvelteKit · Tailwind CSS |
+| Data | PostgreSQL · MySQL · MongoDB |
+| Cloud & tools | AWS · Docker · Git · GitHub Actions · Jenkins · Postman |
+
+The About page keeps the full seven skill groups (section 4).
 
 ### Closing
 

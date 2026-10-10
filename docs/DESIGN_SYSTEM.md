@@ -226,3 +226,14 @@ Fetched `vercel-labs/agent-skills/skills/web-design-guidelines/SKILL.md`. It poi
 2. **Font:** add the `geist` package (v1.7, peer `next >=13.2`), self-hosted via `next/font`. Replaces Jakarta, Sora and Fira Code. Measure the font payload in Phase 4.
 3. **Animation:** remove AOS. Keep framer-motion only if the mobile drawer needs it; otherwise remove it in Phase 3.
 4. **Theme:** dark by default, with a manual toggle.
+
+---
+
+## 10. Stack icons (Home "My stack" rack)
+
+SVGs are copied into `public/icons/stack/` (no runtime dependency). Logos remain trademarks of their owners.
+
+- **devicon** (MIT, https://github.com/devicons/devicon, `-original` variants, nextjs `-plain`): java, python, javascript, typescript, cplusplus, spring, nodejs, react, svelte, tailwindcss, mongodb, docker, git, postman, postgresql, githubactions.
+- **simple-icons** (CC0, https://github.com/simple-icons/simple-icons): express, mysql, jenkins, aws (`amazonaws`). Together with `nextjs` these are single-colour, so `StackRack.tsx` draws them with a CSS mask in `--ink` (works in both themes).
+- Rack styling: `.rack-*` classes at the end of `globals.css`, token-based only. Motion (LED glow, avatar float, block lift) is off under `prefers-reduced-motion`.
+- Avatar: `public/images/sachin-3d-pointing.webp` (640x960, 43 kB). The 1.5 MB source PNG is in `docs/source-images/`.

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import TextLink from '@/common/components/elements/TextLink';
-import { SKILLS } from '@/common/constant/about';
 import { FEATURED_PROJECTS } from '@/common/constant/projects';
 import WorkCard from '@/modules/projects/components/WorkCard';
 
@@ -110,30 +109,6 @@ export const SelectedWork = () => (
           <WorkCard key={slug} project={project} span={span} tone={tone} />
         ) : null;
       })}
-    </div>
-  </section>
-);
-
-export const SkillsStrip = () => (
-  <section
-    aria-labelledby='skills-title'
-    data-strobi-section='home-skills'
-    className='border-t border-hairline'
-  >
-    <div className='mx-auto grid max-w-7xl gap-10 px-4 py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,2.2fr)] md:px-8 md:py-24'>
-      <h2 id='skills-title' className='text-h2'>
-        Tools I use
-      </h2>
-      <dl className='grid gap-x-10 gap-y-6 sm:grid-cols-2'>
-        {SKILLS.map(({ group, items }) => (
-          <div key={group}>
-            <dt className='text-caption text-ink-subtle'>{group}</dt>
-            <dd className='mt-1.5 text-body text-ink-muted'>
-              {items.join(', ')}
-            </dd>
-          </div>
-        ))}
-      </dl>
     </div>
   </section>
 );
