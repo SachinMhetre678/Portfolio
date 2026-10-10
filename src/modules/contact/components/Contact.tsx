@@ -9,7 +9,6 @@ import PageHeader from '@/common/components/elements/PageHeader';
 import { pillClassName } from '@/common/components/elements/PillLink';
 import cn from '@/common/libs/cn';
 import { revealCard, step } from '@/common/libs/motion';
-import AppTiles from './AppTiles';
 import PhoneMockup from './PhoneMockup';
 import useCopyEmail, { EMAIL } from './useCopyEmail';
 
@@ -71,7 +70,7 @@ interface ContactProps {
 }
 
 const Contact = ({ hasResume }: ContactProps) => (
-  <div className='grid gap-x-8 gap-y-10 md:grid-cols-12 md:items-center'>
+  <div className='grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-10 md:grid-cols-12 md:items-center'>
     <div className='flex flex-col gap-10 md:col-span-7'>
       <PageHeader
         badge='Contact'
@@ -97,7 +96,6 @@ const Contact = ({ hasResume }: ContactProps) => (
 
     <div className='md:col-span-5' style={step(1)}>
       <PhoneMockup />
-      <AppTiles />
     </div>
   </div>
 );

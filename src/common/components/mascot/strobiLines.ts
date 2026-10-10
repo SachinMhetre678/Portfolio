@@ -43,6 +43,9 @@ interface Shape {
   unmuted: Group;
 }
 
+// The notification card on the Contact phone's home screen (shown as written, not spoken). The page imports it dynamically so the lines stay out of its bundle.
+export const PHONE_NOTIFICATION = 'New message: tap Mail and say hi.';
+
 export const LINES: Shape = {
   // Page arrival, one random line per visit. Home also mixes in `time`.
   arrival: {
@@ -171,6 +174,7 @@ export const LINES: Shape = {
       'Nice phone. Say hi through any of these apps.',
       'Tap an app. I’ll be nervously watching.',
       ['I want my own app icon. Just saying.', 'shy'],
+      'Everything opens inside the phone. Go on, tap.',
     ],
     'app-mail': [
       'Mail is the fastest way. No pressure though.',

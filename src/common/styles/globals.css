@@ -235,8 +235,15 @@ html:not(.dark) .home-shell {
 
 /* Contact phone mockup. Frame, wallpaper and island use tokens, so both themes follow. */
 .phone-stage {
-  @apply relative w-[292px];
-  perspective: 1100px;
+  @apply relative;
+}
+
+/* Device frame, tilt perspective and size: 768px and up only. Below that the screen is a plain card. */
+@media (min-width: 768px) {
+  .phone-stage {
+    @apply w-[292px];
+    perspective: 1100px;
+  }
 }
 
 .phone-tilt {
@@ -246,13 +253,19 @@ html:not(.dark) .home-shell {
 }
 
 .phone-frame {
-  @apply relative h-[590px] rounded-[3rem] border border-hairline-strong bg-surface-3 p-2.5;
-  box-shadow: inset 0 0 0 1px rgb(var(--gloss) / 0.18),
-    0 28px 50px -18px rgb(var(--shade) / 0.55);
+  @apply relative;
 }
 
-html:not(.dark) .phone-frame {
-  @apply bg-surface-1;
+@media (min-width: 768px) {
+  .phone-frame {
+    @apply h-[590px] rounded-[3rem] border border-hairline-strong bg-surface-3 p-2.5;
+    box-shadow: inset 0 0 0 1px rgb(var(--gloss) / 0.18),
+      0 28px 50px -18px rgb(var(--shade) / 0.55);
+  }
+
+  html:not(.dark) .phone-frame {
+    @apply bg-surface-1;
+  }
 }
 
 .phone-button {
@@ -295,6 +308,14 @@ html:not(.dark) .phone-frame {
 .dark .phone-island {
   background: rgb(var(--canvas));
   box-shadow: 0 0 0 1px rgb(var(--hairline-strong));
+}
+
+.phone-stage .rack-block {
+  @apply h-14 w-14;
+}
+
+.phone-widget {
+  @apply rounded-[1.25rem] border border-hairline bg-surface-1/60 backdrop-blur-md;
 }
 
 .phone-dock {
