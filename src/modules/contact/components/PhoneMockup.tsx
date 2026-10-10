@@ -39,6 +39,25 @@ const useClock = () => {
   return now;
 };
 
+// Pune time (IST), computed after mount. The server HTML carries a placeholder, so nothing mismatches.
+const IST_PLACEHOLDER = '--:--';
+const useIstTime = () => {
+  const [time, setTime] = useState(IST_PLACEHOLDER);
+  useEffect(() => {
+    const format = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
+    });
+    const tick = () => setTime(format.format(new Date()));
+    tick();
+    const id = setInterval(tick, 15000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+};
+
 // Slight 3D tilt toward the cursor: one rAF-throttled pointermove, fine pointers only.
 const useTilt = (
   root: React.RefObject<HTMLDivElement>,
@@ -104,6 +123,7 @@ const StatusBar = ({ time }: { time: string }) => (
 const Widgets = ({ time, date }: { time: string; date: string }) => {
   // Loaded on demand: strobiLines.ts is already in the mascot chunk, so this adds no page JS.
   const [note, setNote] = useState('');
+  const istTime = useIstTime();
   useEffect(() => {
     import('@/common/components/mascot/strobiLines').then((mod) =>
       setNote(mod.PHONE_NOTIFICATION)
@@ -111,14 +131,17 @@ const Widgets = ({ time, date }: { time: string; date: string }) => {
   }, []);
 
   return (
-    <div aria-hidden='true' className='flex flex-col gap-3'>
-      <div className='phone-widget px-4 py-3'>
+    <div className='flex flex-col gap-3'>
+      <div aria-hidden='true' className='phone-widget px-4 py-3'>
         <p className='text-[2.25rem] font-semibold leading-none tracking-[-0.03em] tabular-nums text-ink'>
           {time}
         </p>
         <p className='mt-1.5 text-caption text-ink-muted'>{date}</p>
       </div>
-      <div className='phone-widget flex min-h-[3.75rem] items-center gap-3 px-3 py-2.5'>
+      <div
+        aria-hidden='true'
+        className='phone-widget flex min-h-[3.75rem] items-center gap-3 px-3 py-2.5'
+      >
         <span className='flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-caption font-semibold text-on-accent'>
           S
         </span>
@@ -127,6 +150,23 @@ const Widgets = ({ time, date }: { time: string; date: string }) => {
             Strobi
           </span>
           <span className='block text-caption text-ink-muted'>{note}</span>
+        </span>
+      </div>
+      <div className='phone-widget flex items-center justify-between gap-3 px-4 py-3'>
+        <span>
+          <span className='block text-caption text-ink-subtle'>Location</span>
+          <span className='block text-body-sm font-semibold text-ink'>
+            Based in Pune
+          </span>
+        </span>
+        <span
+          aria-hidden='true'
+          className='text-right text-body-sm font-semibold tabular-nums text-ink'
+        >
+          {istTime}
+          <span className='block text-caption font-normal text-ink-muted'>
+            IST
+          </span>
         </span>
       </div>
     </div>
@@ -282,7 +322,7 @@ const PhoneMockup = () => {
             ref={screenRef}
             role='region'
             aria-label='Contact phone'
-            className='phone-wallpaper relative h-[72vh] min-h-[520px] max-h-[680px] overflow-hidden rounded-3xl border border-hairline md:h-full md:max-h-none md:min-h-0 md:rounded-[2.25rem] md:border-0'
+            className='phone-wallpaper relative h-[66vh] min-h-[500px] max-h-[620px] overflow-hidden rounded-3xl border border-hairline md:h-full md:max-h-none md:min-h-0 md:rounded-[2.25rem] md:border-0'
           >
             <span aria-hidden='true' className='phone-island hidden md:block' />
             <StatusBar time={time} />

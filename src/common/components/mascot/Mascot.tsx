@@ -55,8 +55,21 @@ const Mascot = () => {
     menuOpen: menu !== null,
     minimized,
     canShow: () => {
-      if (!window.matchMedia('(max-width: 767px)').matches) return true;
       const el = shell.current;
+      if (!window.matchMedia('(max-width: 767px)').matches) {
+        // Desktop: only the Contact phone is protected. Skip lines that would land on it.
+        const frame = document.querySelector('.phone-frame');
+        if (!el || !frame) return true;
+        const box = el.getBoundingClientRect();
+        const r = frame.getBoundingClientRect();
+        const bottom = box.top - 12;
+        return !(
+          r.right > box.right - 320 - 8 &&
+          r.left < box.right + 8 &&
+          r.bottom > bottom - 100 - 8 &&
+          r.top < bottom + 8
+        );
+      }
       if (!el || awayRef.current) return false;
       const box = el.getBoundingClientRect();
       const bottom = box.top - 12;
