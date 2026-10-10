@@ -110,7 +110,10 @@ const Projects = () => {
       )}
 
       {earlier.length > 0 && (
-        <section aria-labelledby='earlier-title'>
+        <section
+          aria-labelledby='earlier-title'
+          data-strobi-section='earlier-work'
+        >
           <h2 id='earlier-title' className='text-h1-mobile md:text-h1'>
             Earlier work
           </h2>

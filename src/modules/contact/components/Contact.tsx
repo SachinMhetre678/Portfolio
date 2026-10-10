@@ -12,6 +12,7 @@ import PageHeader from '@/common/components/elements/PageHeader';
 import { PillLink, pillClassName } from '@/common/components/elements/PillLink';
 import { CALENDLY_URL, CONTACT_LINKS } from '@/common/constant/contact';
 import cn from '@/common/libs/cn';
+import { MASCOT_CELEBRATE_EVENT } from '@/common/components/mascot/constants';
 import { revealCard, step } from '@/common/libs/motion';
 
 const [EMAIL, linkedin, ...rest] = CONTACT_LINKS;
@@ -32,6 +33,7 @@ const EmailCard = () => {
     try {
       await navigator.clipboard.writeText(EMAIL.value);
       setState('copied');
+      window.dispatchEvent(new Event(MASCOT_CELEBRATE_EVENT));
     } catch {
       setState('failed');
     }
@@ -42,6 +44,8 @@ const EmailCard = () => {
   return (
     <section
       aria-labelledby='email-title'
+      data-mascot='excited'
+      data-strobi='email'
       className={cn(
         cardClassName,
         'border-accent/25 bg-accent-soft hover:border-accent/50 md:col-span-12'

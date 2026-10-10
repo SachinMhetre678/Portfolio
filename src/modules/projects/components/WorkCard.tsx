@@ -136,6 +136,7 @@ const WorkCard = ({ project, span, tone, full, index = 0 }: WorkCardProps) => {
   return (
     <article
       id={slug}
+      data-strobi={`project-${slug}`}
       aria-labelledby={`work-${slug}`}
       className={cn(
         revealCard,

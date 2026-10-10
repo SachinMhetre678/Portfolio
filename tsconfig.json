@@ -16,7 +16,9 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@bible-strong/avatar-web": ["./node_modules/@bible-strong/avatar-web/dist/index.d.ts"],
+      "@bible-strong/avatar-core": ["./node_modules/@bible-strong/avatar-core/dist/index.d.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -21,10 +21,18 @@ const PROOF: { title: string; text: string; href?: string }[] = [
 ];
 
 export const ProofStrip = () => (
-  <section aria-label='Highlights' className='border-y border-hairline'>
+  <section
+    aria-label='Highlights'
+    data-strobi-section='proof'
+    className='border-y border-hairline'
+  >
     <ul className='mx-auto grid max-w-7xl divide-y divide-hairline px-4 md:grid-cols-3 md:divide-x md:divide-y-0 md:px-8'>
-      {PROOF.map(({ title, text, href }) => (
-        <li key={title} className='py-6 md:px-8 md:py-8 md:first:pl-0'>
+      {PROOF.map(({ title, text, href }, index) => (
+        <li
+          key={title}
+          data-strobi={`proof-${index}`}
+          className='py-6 md:px-8 md:py-8 md:first:pl-0'
+        >
           {href ? (
             <Link href={href} className='group block'>
               <p className='text-h3 text-ink group-hover:text-accent'>
@@ -80,6 +88,7 @@ export const AboutBlock = () => (
 export const SelectedWork = () => (
   <section
     aria-labelledby='work-title'
+    data-strobi-section='selected-work'
     className='mx-auto max-w-7xl px-4 py-20 md:px-8 md:py-28'
   >
     <div className='flex flex-wrap items-end justify-between gap-6'>
@@ -106,7 +115,11 @@ export const SelectedWork = () => (
 );
 
 export const SkillsStrip = () => (
-  <section aria-labelledby='skills-title' className='border-t border-hairline'>
+  <section
+    aria-labelledby='skills-title'
+    data-strobi-section='home-skills'
+    className='border-t border-hairline'
+  >
     <div className='mx-auto grid max-w-7xl gap-10 px-4 py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,2.2fr)] md:px-8 md:py-24'>
       <h2 id='skills-title' className='text-h2'>
         Tools I use
@@ -126,7 +139,11 @@ export const SkillsStrip = () => (
 );
 
 export const Closing = () => (
-  <section aria-labelledby='closing-title' className='px-4 pb-16 md:px-8'>
+  <section
+    aria-labelledby='closing-title'
+    data-strobi-section='closing'
+    className='px-4 pb-16 md:px-8'
+  >
     <div className='mx-auto flex max-w-7xl flex-col items-start gap-8 rounded-[32px] border border-hairline bg-surface-1 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-12 md:py-16'>
       <div>
         <h2 id='closing-title' className='text-h1-mobile md:text-h1'>
