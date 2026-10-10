@@ -8,6 +8,7 @@ import { ThemeProvider } from 'next-themes';
 import '@/common/styles/globals.css';
 
 import Layout from '@/common/components/layouts';
+import MascotLoader from '@/common/components/mascot/MascotLoader';
 import { SITE } from '@/common/constant/site';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -53,6 +54,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <MascotLoader />
       </ThemeProvider>
     </>
   );
