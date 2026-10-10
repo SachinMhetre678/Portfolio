@@ -1,5 +1,3 @@
-import { restartTour } from '@/common/components/mascot/storage';
-
 const Footer = () => (
   <footer className='mx-auto max-w-7xl px-4 pb-10 md:px-8'>
     <p className='text-caption text-ink-subtle'>
@@ -9,7 +7,7 @@ const Footer = () => (
       </span>{' '}
       by Sachin
     </p>
-    <p className='mt-2 text-caption text-ink-subtle'>
+    <p data-strobi='credit' className='mt-2 text-caption text-ink-subtle'>
       Mascot made with{' '}
       <a
         href='https://github.com/smontlouis/bible-strong-avatar-lab'
@@ -20,14 +18,7 @@ const Footer = () => (
         Bible Strong Avatar Lab
         <span className='sr-only'> (opens in new tab)</span>
       </a>{' '}
-      by Stéphane Montlouis-Calixte (AGPL-3.0){' · '}
-      <button
-        type='button'
-        onClick={restartTour}
-        className='underline underline-offset-2 hover:text-ink'
-      >
-        Take the tour again
-      </button>
+      by Stéphane Montlouis-Calixte (AGPL-3.0)
     </p>
   </footer>
 );

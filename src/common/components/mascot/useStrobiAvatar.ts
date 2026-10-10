@@ -2,7 +2,7 @@ import { createAvatar } from '@bible-strong/avatar-web';
 import { RefObject, useEffect, useRef } from 'react';
 
 import { MASCOT_CELEBRATE_EVENT } from './constants';
-import type { Mood } from './tour';
+import type { Mood } from './strobiLines';
 
 const DROWSY_AFTER_MS = 30_000;
 const WAKING_MS = 2500;

@@ -1,3 +1,2 @@
 export const MASCOT_CELEBRATE_EVENT = 'mascot:celebrate';
-export const MASCOT_TOUR_EVENT = 'strobi:start-tour';
 export const MASCOT_DEFINITION_URL = '/strobi.avatar.json';

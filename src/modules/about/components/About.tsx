@@ -95,7 +95,10 @@ const About = ({ hasResume }: AboutProps) => (
       </ul>
     </section>
 
-    <section aria-labelledby='experience-title' data-tour='experience'>
+    <section
+      aria-labelledby='experience-title'
+      data-strobi-section='experience'
+    >
       <SectionTitle id='experience-title'>Experience</SectionTitle>
       <ol className='mt-8 ml-2 space-y-12 border-l border-hairline'>
         {EXPERIENCE.map(
@@ -126,7 +129,7 @@ const About = ({ hasResume }: AboutProps) => (
       </ol>
     </section>
 
-    <section aria-labelledby='education-title'>
+    <section aria-labelledby='education-title' data-strobi-section='education'>
       <SectionTitle id='education-title'>Education</SectionTitle>
       <div className='mt-8 rounded-[24px] border border-hairline bg-surface-1 p-6 md:p-8'>
         <h3 className='text-h2'>{EDUCATION.school}</h3>
@@ -147,7 +150,7 @@ const About = ({ hasResume }: AboutProps) => (
       </div>
     </section>
 
-    <section aria-labelledby='skills-title'>
+    <section aria-labelledby='skills-title' data-strobi-section='about-skills'>
       <SectionTitle id='skills-title'>Skills</SectionTitle>
       <dl className='mt-8 grid gap-4 md:grid-cols-2'>
         {SKILLS.map(({ group, items }) => (

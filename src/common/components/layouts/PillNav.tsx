@@ -57,7 +57,7 @@ const PillNav = () => {
           Sachin Mhetre
         </Link>
 
-        <ul className='hidden items-center gap-1 md:flex'>
+        <ul data-strobi='nav' className='hidden items-center gap-1 md:flex'>
           {MENU_ITEMS.map(({ title, href }) => {
             const isActive = pathname === href;
             return (

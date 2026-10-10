@@ -45,6 +45,7 @@ const EmailCard = () => {
     <section
       aria-labelledby='email-title'
       data-mascot='excited'
+      data-strobi='email'
       className={cn(
         cardClassName,
         'border-accent/25 bg-accent-soft hover:border-accent/50 md:col-span-12'
@@ -97,7 +98,7 @@ const Contact = ({ hasResume }: ContactProps) => (
       subtitle='the fastest way is email.'
     />
 
-    <div data-tour='contact' className='grid gap-4 md:grid-cols-12'>
+    <div className='grid gap-4 md:grid-cols-12'>
       <EmailCard />
 
       <section

@@ -14,6 +14,7 @@ const ThemeToggle = ({ className }: { className?: string }) => {
   return (
     <button
       type='button'
+      data-strobi='theme'
       onClick={() => setTheme(nextTheme)}
       aria-label={hasMounted ? `Switch to ${nextTheme} theme` : 'Toggle theme'}
       className={cn(

@@ -1,22 +1,20 @@
-import { MASCOT_TOUR_EVENT } from './constants';
-
-const SEEN_KEY = 'strobi-tour-seen'; // localStorage: the greeting is shown once per browser
-const STEP_KEY = 'strobi-tour-step'; // sessionStorage: survives a reload mid-tour
+const MUTED_KEY = 'strobi-muted'; // localStorage: automatic bubbles off
+const VISITED_KEY = 'strobi-visited'; // localStorage: first visit vs return visit
 const MINIMIZED_KEY = 'strobi-minimized'; // sessionStorage
+const GREETED_KEY = 'strobi-greeted'; // sessionStorage: one greeting per session
+const SECTIONS_KEY = 'strobi-sections'; // sessionStorage: sections already commented on
+
+type Store = 'localStorage' | 'sessionStorage';
 
 // Storage can throw (private mode, blocked cookies); every helper fails soft.
-const read = (store: 'localStorage' | 'sessionStorage', key: string) => {
+const read = (store: Store, key: string) => {
   try {
     return window[store].getItem(key);
   } catch {
     return null;
   }
 };
-const write = (
-  store: 'localStorage' | 'sessionStorage',
-  key: string,
-  value: string | null
-) => {
+const write = (store: Store, key: string, value: string | null) => {
   try {
     if (value === null) window[store].removeItem(key);
     else window[store].setItem(key, value);
@@ -25,27 +23,25 @@ const write = (
   }
 };
 
-export const tourSeen = () => read('localStorage', SEEN_KEY) === '1';
-export const setTourSeen = () => write('localStorage', SEEN_KEY, '1');
+export const isMuted = () => read('localStorage', MUTED_KEY) === '1';
+export const setMuted = (value: boolean) =>
+  write('localStorage', MUTED_KEY, value ? '1' : null);
 
-export const getTourStep = () => {
-  const value = Number(read('sessionStorage', STEP_KEY));
-  return read('sessionStorage', STEP_KEY) === null || Number.isNaN(value)
-    ? null
-    : value;
-};
-export const setTourStep = (step: number | null) =>
-  write('sessionStorage', STEP_KEY, step === null ? null : String(step));
+export const hasVisited = () => read('localStorage', VISITED_KEY) === '1';
+export const setVisited = () => write('localStorage', VISITED_KEY, '1');
 
 export const isMinimized = () => read('sessionStorage', MINIMIZED_KEY) === '1';
 export const setMinimized = (value: boolean) =>
   write('sessionStorage', MINIMIZED_KEY, value ? '1' : null);
 
-// Footer link: clear the flag and start the tour, even if Strobi is still loading
-// (the saved step is picked up when the mascot mounts).
-export const restartTour = () => {
-  write('localStorage', SEEN_KEY, null);
-  setMinimized(false);
-  setTourStep(0);
-  window.dispatchEvent(new Event(MASCOT_TOUR_EVENT));
-};
+export const wasGreeted = () => read('sessionStorage', GREETED_KEY) === '1';
+export const setGreeted = () => write('sessionStorage', GREETED_KEY, '1');
+
+export const seenSection = (key: string) =>
+  (read('sessionStorage', SECTIONS_KEY) ?? '').split(',').includes(key);
+export const markSection = (key: string) =>
+  write(
+    'sessionStorage',
+    SECTIONS_KEY,
+    [read('sessionStorage', SECTIONS_KEY), key].filter(Boolean).join(',')
+  );

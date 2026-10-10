@@ -113,15 +113,3 @@ html:not(.dark) .home-shell {
 .stagger {
   animation-delay: calc(var(--i, 0) * 90ms + var(--base, 0ms));
 }
-
-/* Strobi tour: soft ring on the current target. Static, so it is safe under reduced motion. */
-[data-tour] {
-  scroll-margin-top: 6rem;
-}
-
-[data-tour-active] {
-  border-radius: 24px;
-  outline: 2px solid rgb(var(--accent) / 0.6);
-  outline-offset: 6px;
-  box-shadow: 0 0 0 12px rgb(var(--accent) / 0.1);
-}
