@@ -1,5 +1,22 @@
 # Phase 0 Audit (2026-10-06)
 
+## Status (updated 2026-10-10)
+
+This audit is historical. It describes the original site (before the redesign) and is not updated to match the code. Current sources: `docs/CONTENT_APPROVED.md` (copy), `docs/DESIGN_SYSTEM.md` (design), `docs/ARCHITECTURE.md` (code), `docs/TODO.md` (open work).
+
+What became of the main decisions:
+
+- **Cleanup (decision 7):** done. Unused template code, API routes, AOS, next-auth, Prisma, Firebase and the other leftovers are removed. Next.js 13.5 Pages Router is kept, one lockfile.
+- **Content decisions (1 to 6, 8 to 11):** applied and recorded in `docs/CONTENT_APPROVED.md`. The job title is now "Associate Automation Engineer" (the word QA was dropped later).
+- **Sidebar and status line (table "Sidebar / global"):** the sidebar is gone. A floating pill nav is used on every page, and the job title appears only on About.
+- **Home:** rebuilt with a hero, proof strip, selected work and a "My stack" rack. The old "Tools I use" strip and the skills marquee are gone.
+- **Pending items (decision 12):** FOSS Hack 2025 (Scribly) and BMC Hackademia (RAG) are on the site. The resume PDF is still a placeholder.
+- **Section 5 problems:** console errors, a11y basics, image weight and the always-visible "Loading…" text were targeted by the redesign (the next-auth code behind the console errors is removed). The results are not yet verified with Playwright and axe (Phase 4, see `docs/TODO.md`).
+- **Section 6 phases:** Phases 0 to 3 are done. Phase 4 has not been run. Phase 5 became these docs, with `docs/ARCHITECTURE.md` and a root `CLAUDE.md` instead of the file list in section 6.
+- **Open questions in section 3:** the bio, Home CTA, outside-work line and unused `.wav` files were settled or parked in `docs/TODO.md`.
+
+---
+
 Audit of the live site (https://sachinmhetre.vercel.app) and this repo before the redesign.
 The live site matches the repo exactly. The decisions in section 3 are **approved by Sachin** and are binding for later phases.
 
